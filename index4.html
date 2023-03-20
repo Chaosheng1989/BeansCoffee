@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beans Coffee購物清單</title>
+  <link rel="stylesheet" href="/css/style4.css" class="css">
+  <link rel="stylesheet" href="/JS/index4.js" class="js">
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo">
+        <a href="#"><img src="/img/logo.png" alt="Logo"></a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#about-us">關於我們</a></li>
+          <li><a href="#product-head">產品列表</a></li>
+          <li><a href="#">註冊會員</a></li>
+          <li><a href="#" class="login-btn">會員登入</a></li>
+          <li><a href="#" class="cart-btn">購物車</a></li>
+        </ul>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="script.js"></script>
+      </nav>
+    </header>
+    <div class="banner">
+      <img
+        src="https://media.istockphoto.com/id/1411720693/photo/tasty-cups-of-coffee.jpg?s=612x612&w=0&k=20&c=8k47TxB-D4c5J-dBA1lY_9MeTam4mN7-2vKVS4ge0SM="
+        alt="banner image">
+    </div>
+    <div class="cart-list">
+      <h2>Beans Coffee 購物清單</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>商品</th>
+            <th>單價</th>
+            <th>數量</th>
+            <th>小計</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>商品 1</td>
+            <td class="price">100</td>
+            <td>
+              <input type="number" class="quantity" value="1">
+            </td>
+            <td class="subtotal"></td>
+            <td>
+              <button class="remove">移除</button>
+            </td>
+          </tr>
+          <tr>
+            <td>商品 2</td>
+            <td class="price">200</td>
+            <td>
+              <input type="number" class="quantity" value="1">
+            </td>
+            <td class="subtotal"></td>
+            <td>
+              <button class="remove">移除</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <hr>
+      <div class="total">
+        <div class="shipping">運費：<span>100</span></div>
+        <div class="grand-total">總金額：<span>0</span></div>
+      </div>
+      <div class="shiooinginformation">
+      <h2>收件人資訊</h2>
+      <form>
+        <div>
+          <label for="name">姓名：</label>
+          <input type="text" id="name" required>
+        </div>
+        <div>
+          <label for="phone">電話：</label>
+          <input type="tel" id="phone" required>
+        </div>
+        <div>
+          <label for="address">地址：</label>
+          <input type="text" id="address" required>
+        </div>
+      </form>
+      <button class="submit">確認送出</button>
+      <button class="continue">繼續購物</button>
+    </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+
+請提供購物車清單 html  css  js
+1. 商品、(單價(取整數)、數量、小計 )+運費(200) =總金額
+2. 新增購買/移除清單、編輯數量
+3. 收件人資訊: 姓名/ 電話/ 地址
+4. 按鈕:確認送出 、繼續購物
