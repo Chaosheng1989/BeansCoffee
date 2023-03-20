@@ -245,7 +245,7 @@ nav li:hover a:not(.cart-btn) {
   top: 15%;
   left: 30%;
   z-index: 2;
-  background-color: rgb(38, 152, 55);
+  background-color: rgb(150, 219, 160);
   border-radius: 10px;
 }
 .cart-list h2{
@@ -258,6 +258,8 @@ table {
   width: 500px;
   border-collapse: collapse;
   margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 th, td {
@@ -277,6 +279,10 @@ td.subtotal {
   color: blue;
 }
 
+.quantity{
+  text-align: center;
+}
+
 .total{
   display: flex;
   justify-content: space-around;
@@ -286,6 +292,11 @@ td.subtotal {
   font-size: 25px;
 }
 
+.orderinformation{
+  margin-left: 50px;
+  margin-right: 50px;
+  border-bottom: 1px solid gray;
+}
 button {
   padding: 5px 10px;
   background-color: #ccc;
@@ -331,7 +342,7 @@ button.submit {
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 10px;
-  margin-right: 20px;
+  margin-right: 50px;
 }
 
 button.continue {
