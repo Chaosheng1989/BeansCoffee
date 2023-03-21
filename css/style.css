@@ -434,7 +434,7 @@ nav li:hover a:not(.cart-btn) {
 /* 關於Beans Coffee */
 
 #about-us{
-  background-image: url(./img/interlaced.png);
+  background-image: url(../img/interlaced.png);
 }
 
 #about-us:target {
