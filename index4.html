@@ -5,9 +5,21 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="Josh" content="Josh">
+  <meta name="description" content="發現來自世界各地最好的咖啡豆">
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Beans Coffee" />
   <title>Beans Coffee購物清單</title>
   <link rel="stylesheet" href="css/style4.css" class="css">
-  <link rel="stylesheet" href="JS/index4.js" class="js">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TT1H98HX27"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-TT1H98HX27');
+  </script>
 </head>
 
 <body>
@@ -75,28 +87,29 @@
         <div class="grand-total">總金額：<span>0</span></div>
       </div>
       <div class="shiooinginformation">
-      <div class="orderinformation"><h2>收件人資訊</h2></div>
-      <br>
-      <form>
-        <div>
-          <label for="name">姓名：</label>
-          <input type="text" id="name" required>
+        <div class="orderinformation">
+          <h2>收件人資訊</h2>
         </div>
-        <div>
-          <label for="phone">電話：</label>
-          <input type="tel" id="phone" required>
-        </div>
-        <div>
-          <label for="address">地址：</label>
-          <input type="text" id="address" required>
-        </div>
-      </form>
-      <button class="submit">確認送出</button>
-      <button class="continue">繼續購物</button>
-    </div>
+        <br>
+        <form>
+          <div>
+            <label for="name">姓名：</label>
+            <input type="text" id="name" required>
+          </div>
+          <div>
+            <label for="phone">電話：</label>
+            <input type="tel" id="phone" required>
+          </div>
+          <div>
+            <label for="address">地址：</label>
+            <input type="text" id="address" required>
+          </div>
+        </form>
+        <button class="submit">確認送出</button>
+        <button class="continue">繼續購物</button>
+      </div>
     </div>
   </div>
 </body>
 
 </html>
-
