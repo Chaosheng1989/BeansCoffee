@@ -127,14 +127,10 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-*{  
+/* *{  
   outline: 1px solid #000;
-}
-<<<<<<< HEAD
+} */
 
-=======
- */
->>>>>>> 563af80917a6f4af7a02454dbae87a4ce3d11931
 /* header */
 .header {
   position: fixed;
@@ -332,14 +328,16 @@ nav li:hover a:not(.cart-btn) {
 
 .search-form {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
 }
 
 .search-form input[type="text"] {
-  padding: 0.5rem;
+  flex: 1;
+  margin-right: 0.5rem;
+  padding: 2rem;
   border: none;
-  border-radius: 0.25rem 0 0 0.25rem;
+  border-radius: 2rem 0 0 2rem;
   width: 20rem;
   font-size: 1.2rem;
 }
@@ -348,14 +346,17 @@ nav li:hover a:not(.cart-btn) {
   background-color: rgb(31, 5, 5);
   color: #fff;
   border: none;
-  border-radius: 0.25rem;
-  padding: 0.5rem 1rem;
+  padding: 2rem;
+  border-radius: 0 1rem 1rem 0;
   font-size: 1.2rem;
   cursor: pointer;
 }
+.search-form input[type="text"], .search-form button {
+  margin: 0;
+}
 @media (max-width: 767px){
   .search-form input[type="text"] {
-    width: 9rem;
+    max-width: 13rem;
   }
   .search-form button {
     cursor: pointer;
@@ -593,8 +594,8 @@ footer {
   padding: 20px;
   background-color: #000000;
   color: #fff;
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height:auto;
 }
 
 .contact-info h3,
@@ -614,21 +615,28 @@ footer {
 .contact-info img {
   filter: invert(100%);
   vertical-align: middle;
-  height: 25px;
+  max-height: 25px;
   padding-right: 10px;
 }
 .message-board {
-  padding-left: 120px;
-  width: 300px;
+  /* padding-top: 7%; */
+  padding-left: 10%;
+  max-width: 300px;
 }
 .message-board form {
   display: flex;
   flex-direction: column;
+  /* justify-content: space-between;
+  align-items: center; */
+  width: 300px;
 }
 
 .message-board label {
   font-size: 16px;
   margin-bottom: 5px;
+  display: block;
+  text-align: left;
+  width: 300px;
 }
 
 .message-board input,
@@ -638,10 +646,13 @@ footer {
   border: none;
   border-radius: 3px;
   font-size: 16px;
+  text-align: left;
+  width: 100%;
 }
 
 .message-board textarea {
-  height: 150px;
+  width: 100%;
+  height: 120px;
 }
 
 .message-board button {
@@ -653,6 +664,7 @@ footer {
   border-radius: 3px;
   font-size: 16px;
   cursor: pointer;
+  max-width: 100%;
 }
 
 @media (max-width: 767px) {
@@ -690,37 +702,37 @@ footer {
   border-radius: 10px;
 }
 
-.btn {
+.signup .btn {
   width: 550px;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-h1 {
+.signup h1 {
   text-align: center;
   padding: 30px 0px;
   font-size: 36px;
   font-weight: bold;
 }
-form {
+.signup form {
   max-width: 500px;
   margin: 0 auto;
   text-align: center;
   padding-top: 30px;
   padding-bottom: 30px;
 }
-label {
+.signup label {
   display: inline-block;
   width: 100px;
   margin-right: 10px;
   font-weight: bold;
   font-size: 20px;
 }
-input[type="text"],
-input[type="password"],
-input[type="email"],
-input[type="tel"] {
+.signup input[type="text"],
+.signup input[type="password"],
+.signup input[type="email"],
+.signup input[type="tel"] {
   width: 250px;
   height: 30px;
   font-size: 16px;
@@ -730,10 +742,10 @@ input[type="tel"] {
   border: 2px solid #ccc;
   border-radius: 4px;
 }
-input[type="submit"],
-input[type="reset"] {
+.signup input[type="submit"],
+.signup input[type="reset"] {
   background-color: #123aca;
-  color: white;
+  color: rgb(223, 217, 217);
   border: none;
   padding: 10px 20px;
   text-align: center;
@@ -744,8 +756,8 @@ input[type="reset"] {
   cursor: pointer;
   border-radius: 4px;
 }
-input[type="submit"]:hover,
-input[type="reset"]:hover {
+.signup input[type="submit"]:hover,
+.signup input[type="reset"]:hover {
   background-color: #dfbf0e;
   color: #000;
   font-weight: bold;
@@ -771,7 +783,7 @@ input[type="reset"]:hover {
   font-size: 36px;
   padding: 30px 0px;
 }
-form {
+.login form {
   width: 400px;
   margin: 0 auto;
   text-align: center;
@@ -781,15 +793,15 @@ form {
   font-size: 25px;
 }
 
-label {
+.login label {
   display: inline-block;
   width: 80px;
   text-align: right;
   margin: 10px;
 }
 
-input[type="text"],
-input[type="password"] {
+.login input[type="text"],
+.login input[type="password"] {
   padding: 10px;
   margin: 10px;
   width: 220px;
@@ -798,11 +810,11 @@ input[type="password"] {
   box-sizing: border-box;
 }
 
-.buttons {
+.login .buttons {
   margin-top: 20px;
 }
 
-button {
+.login button {
   background-color: #0066cc;
   border: none;
   border-radius: 5px;
@@ -813,7 +825,7 @@ button {
   margin: 0 10px;
 }
 
-button:hover {
+.login button:hover {
   background-color: #dfbf0e;
   color: #000;
   font-weight: bold;
@@ -900,39 +912,39 @@ td.subtotal {
   margin-right: 50px;
   border-bottom: 1px solid gray;
 }
-button {
+.shiooinginformation button {
   padding: 5px 10px;
   background-color: #ccc;
   border: none;
   cursor: pointer;
 }
 
-button:hover {
+.shiooinginformation button:hover {
   background-color: #aaa;
 }
 
-input[type="number"] {
+.shiooinginformation input[type="number"] {
   width: 50px;
 }
 
-form div {
+.shiooinginformation form div {
   margin-bottom: 10px;
 }
 
-form label {
+.shiooinginformation form label {
   display: inline-block;
   width: 80px;
   font-weight: bold;
 }
 
-form input {
+.shiooinginformation form input {
   padding: 5px;
   width: 200px;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
 
-button.submit {
+.shiooinginformation button.submit {
   background-color: red;
   border: none;
   color: rgb(5, 1, 27);
@@ -948,7 +960,7 @@ button.submit {
   margin-right: 50px;
 }
 
-button.continue {
+.shiooinginformation button.continue {
   background-color: #008CBA;
   border: none;
   color: rgb(21, 19, 19);
