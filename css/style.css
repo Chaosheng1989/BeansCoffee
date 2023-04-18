@@ -319,11 +319,13 @@ nav li:hover a:not(.cart-btn) {
 .banner-text h2 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
+  text-shadow: 1px 1px black;
 }
 
 .banner-text p {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
+  text-shadow: 0px 1px black;
 }
 
 .search-form {
@@ -335,7 +337,7 @@ nav li:hover a:not(.cart-btn) {
 .search-form input[type="text"] {
   flex: 1;
   margin-right: 0.5rem;
-  padding: 2rem;
+  padding: 1.5rem;
   border: none;
   border-radius: 2.5rem 0 0 2.5rem;
   width: 20rem;
@@ -346,7 +348,7 @@ nav li:hover a:not(.cart-btn) {
   background-color: rgb(31, 5, 5);
   color: #fff;
   border: none;
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 0 1rem 1rem 0;
   font-size: 1.2rem;
   cursor: pointer;
@@ -591,7 +593,7 @@ footer {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding-top: 5%;
+  padding: 3% 0;
   background-color: #000000;
   color: #fff;
   width: 100%;
@@ -689,26 +691,44 @@ footer {
 
 
 /* index2.html 註冊會員流程 */
+.signup-banner {
+  max-width: 100%;
+  max-height: 30%;
+  padding-bottom: 66.67%;
+  position: relative;
+}
 
+.signup-banner img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.signup::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(https://media.istockphoto.com/id/1411720693/photo/tasty-cups-of-coffee.jpg?s=612x612&w=0&k=20&c=8k47TxB-D4c5J-dBA1lY_9MeTam4mN7-2vKVS4ge0SM=);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.6; /* 設置透明度 */
+  z-index: -1; /* 把偽元素移到背景 */
+}
 .signup {
   margin: 0 auto;
-  position: absolute;
-  top: 0%;
-  left: 35%;
+  position: relative;
   background-color: rgba(128, 128, 128, 0.61);
-  margin-top: 100px;
   padding-top: 30px;
-  width: 500px;
-  border-radius: 10px;
+  max-width: 60%;
+  border-radius: 0 0 10px 10px;
 }
-
-.signup .btn {
-  width: 550px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
 .signup h1 {
   text-align: center;
   padding: 30px 0px;
@@ -716,7 +736,7 @@ footer {
   font-weight: bold;
 }
 .signup form {
-  max-width: 500px;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
   padding-top: 30px;
@@ -733,7 +753,8 @@ footer {
 .signup input[type="password"],
 .signup input[type="email"],
 .signup input[type="tel"] {
-  width: 250px;
+  width: 100%;
+  max-width: 250px;
   height: 30px;
   font-size: 16px;
   padding: 5px;
@@ -741,6 +762,12 @@ footer {
   box-sizing: border-box;
   border: 2px solid #ccc;
   border-radius: 4px;
+}
+.signup .btn {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .signup input[type="submit"],
 .signup input[type="reset"] {
@@ -755,6 +782,7 @@ footer {
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 4px;
+  font-weight: bold;
 }
 .signup input[type="submit"]:hover,
 .signup input[type="reset"]:hover {
@@ -762,20 +790,53 @@ footer {
   color: #000;
   font-weight: bold;
 }
-
+@media (max-width: 767px){
+  .signup{
+    min-width: 60%;
+  }
+  .signup form{
+    text-align: left;
+    padding-left: 5%;
+  }
+}
 
 /* index3.hmtl 會員登入 */
-
+.login-banner {
+  max-width: 100%;
+  max-height: 30%;
+  padding-bottom: 66.67%;
+  position: relative;
+}
+.login-banner img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.signup::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(https://media.istockphoto.com/id/1411720693/photo/tasty-cups-of-coffee.jpg?s=612x612&w=0&k=20&c=8k47TxB-D4c5J-dBA1lY_9MeTam4mN7-2vKVS4ge0SM=);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.6; /* 設置透明度 */
+  z-index: -1; /* 把偽元素移到背景 */
+}
 .login {
   margin: 0 auto;
-  position: absolute;
-  top: 0%;
-  left: 35%;
+  position: relative;
   background-color: rgba(128, 128, 128, 0.61);
-  margin-top: 100px;
   padding-top: 30px;
-  width: 500px;
-  border-radius: 10px;
+  max-width: 60%;
+  border-radius: 0 0 10px 10px;
 }
 .login h1 {
   text-align: center;
@@ -784,7 +845,7 @@ footer {
   padding: 30px 0px;
 }
 .login form {
-  width: 400px;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
   padding-top: 30px;
@@ -795,23 +856,28 @@ footer {
 
 .login label {
   display: inline-block;
-  width: 80px;
+  max-width: 80px;
   text-align: right;
-  margin: 10px;
+  margin-right: 10px;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .login input[type="text"],
 .login input[type="password"] {
   padding: 10px;
-  margin: 10px;
-  width: 220px;
+  width: 100%;
+  max-width: 220px;
   border-radius: 5px;
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
 
-.login .buttons {
-  margin-top: 20px;
+.login .button {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .login button {
@@ -822,7 +888,7 @@ footer {
   font-size: 22px;
   padding: 10px 20px;
   cursor: pointer;
-  margin: 0 10px;
+  margin: 0 20px;
 }
 
 .login button:hover {
@@ -846,6 +912,21 @@ footer {
   background-color: #dfbf0e;
 }
 
+@media (max-width: 767px){
+  .login{
+    min-width: 60%;
+  }
+  .login form{
+    text-align: left;
+    padding-left: 5%;
+  }
+  .login label{
+    padding-bottom: 3%;
+  }
+  .login button{
+    margin: 10px 20px;
+  }
+}
 
 
 /* index4.html購買清單 */
