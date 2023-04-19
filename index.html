@@ -20,6 +20,8 @@
 
     gtag('config', 'G-TT1H98HX27');
   </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="JS/js.js"></script>
 </head>
 
 <body>
@@ -29,15 +31,18 @@
         <a href="index.html"><img src="img/logo.png" alt="Logo"></a>
       </div>
       <nav>
-        <ul class="menu">
-          <li><a href="#about-us">關於我們</a></li>
-          <li><a href="#product-head">產品列表</a></li>
-          <li><a href="index2.html">註冊會員</a></li>
-          <li><a href="index3.html" class="login-btn">會員登入</a></li>
-          <li><a href="index4.html" class="cart-btn">購物車</a></li>
-        </ul>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="script.js"></script>
+        <div class="menu-wrapper">
+          <ul class="menu">
+            <li><a href="#about-us">關於我們</a></li>
+            <li><a href="#product-head">產品列表</a></li>
+            <li><a href="index2.html">註冊會員</a></li>
+            <li><a href="index3.html" class="login-btn">會員登入</a></li>
+          </ul>
+          <div class="cart-icon-wrapper">
+            <a href="index4.html" class="cart-btn">購物車</a>
+            <div class="menu-icon">&#9776;</div><!-- 新增漢堡選單按鈕 -->
+          </div>
+        </div>
       </nav>
     </header>
     <div class="banner">
@@ -201,20 +206,22 @@
 
     </div>
     <section id="about-us">
-      <div class="about-us-text">
-        <h2>關於Beans Coffee</h2>
-        <p>
-          我們的咖啡豆都是由優質的咖啡生豆經過嚴格的挑選、烘焙、包裝等多個過程精心製作而成的。烘焙是製作高品質咖啡的重要步驟之一，透過掌握烘焙的溫度、時間、烘焙程度等因素，能夠調整咖啡豆的香氣、風味、口感等特點，讓咖啡豆釋放出最完美的風味。
-        </p>
-        <br>
-        <P>Coffee採用德國原裝 最新型 PROBAT P05 III 烘豆機
-          精密的電控系統、高效率的加熱裝置
-          特殊設計的攪拌葉片、優秀的續溫效果
-          使豆子均勻地受熱，呈現品質穩定的烘培
-          讓咖啡豆的乾淨度和風味層次達到最大值</P>
-      </div>
-      <div class="about-us-image">
-        <img src="img/about-us-image.png" alt="咖啡烘焙圖片">
+      <div class="about-us-container">
+        <div class="about-us-text">
+          <h2>關於Beans Coffee</h2>
+          <p>
+            我們的咖啡豆都是由優質的咖啡生豆經過嚴格的挑選、烘焙、包裝等多個過程精心製作而成的。烘焙是製作高品質咖啡的重要步驟之一，透過掌握烘焙的溫度、時間、烘焙程度等因素，能夠調整咖啡豆的香氣、風味、口感等特點，讓咖啡豆釋放出最完美的風味。
+          </p>
+          <br>
+          <P>Coffee採用德國原裝 最新型 PROBAT P05 III 烘豆機
+            精密的電控系統、高效率的加熱裝置
+            特殊設計的攪拌葉片、優秀的續溫效果
+            使豆子均勻地受熱，呈現品質穩定的烘培
+            讓咖啡豆的乾淨度和風味層次達到最大值</P>
+        </div>
+        <div class="about-us-image">
+          <img src="img/about-us-image.png" alt="咖啡烘焙圖片">
+        </div>
       </div>
     </section>
     <footer>
@@ -241,6 +248,7 @@
       </div>
       <div class="message-board">
         <h3>留言板</h3>
+        <hr>
         <form>
           <label for="name">姓名:</label>
           <input type="text" id="name" name="name">
@@ -252,7 +260,6 @@
         </form>
       </div>
     </footer>
-
 
   </div>
 </body>
