@@ -767,11 +767,14 @@ footer {
 .signup .btn {
   display: flex;
   justify-content: space-around;
-  /* align-items: center; */
+  align-items: center;
   text-align: center;
   flex-wrap: wrap;
   margin: 0 auto;
   width: 50%;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .signup input[type="submit"],
 .signup input[type="reset"] {
@@ -803,6 +806,11 @@ footer {
   .signup form{
     text-align: left;
     padding-left: 10%;
+    min-width: 60%;
+  }
+  .signup form{
+    text-align: left;
+    padding-left: 5%;
   }
 }
 
