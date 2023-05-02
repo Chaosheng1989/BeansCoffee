@@ -10,18 +10,18 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Beans Coffee" />
   <title>Beans Coffee</title>
-  <link rel="stylesheet" href="css/style.css" class="css">
+  <link rel="stylesheet" href="css/all.css" class="css">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TT1H98HX27"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-TT1H98HX27');
   </script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="JS/js.js"></script>
+  <style>html {scroll-behavior: smooth;}</style>
 </head>
 
 <body>
@@ -35,11 +35,11 @@
           <ul class="menu">
             <li><a href="#about-us">關於我們</a></li>
             <li><a href="#product-head">產品列表</a></li>
-            <li><a href="index2.html">註冊會員</a></li>
-            <li><a href="index3.html" class="login-btn">會員登入</a></li>
+            <li><a href="signup.html">註冊會員</a></li>
+            <li><a href="login.html" class="login-btn">會員登入</a></li>
           </ul>
           <div class="cart-icon-wrapper">
-            <a href="index4.html" class="cart-btn">購物車</a>
+            <a href="cart.html" class="cart-btn">購物車</a>
             <div class="menu-icon">&#9776;</div><!-- 新增漢堡選單按鈕 -->
           </div>
         </div>
@@ -87,7 +87,8 @@
               <button class="quantity-btn plus-btn">+</button>
             </div>
           </div>
-          <div class="buy"><button class="add-to-cart-btn">加入購物車</button>
+          <div class="buy">
+            <button class="add-to-cart-btn">加入購物</button>
             <button class="checkout-btn">直接結帳</button>
           </div>
         </div>
@@ -113,7 +114,7 @@
               <button class="quantity-btn plus-btn">+</button>
             </div>
           </div>
-          <div class="buy"><button class="add-to-cart-btn">加入購物車</button>
+          <div class="buy"><button class="add-to-cart-btn">加入購物</button>
             <button class="checkout-btn">直接結帳</button>
           </div>
         </div>
@@ -141,7 +142,7 @@
               <button class="quantity-btn plus-btn">+</button>
             </div>
           </div>
-          <div class="buy"><button class="add-to-cart-btn">加入購物車</button>
+          <div class="buy"><button class="add-to-cart-btn">加入購物</button>
             <button class="checkout-btn">直接結帳</button>
           </div>
         </div>
@@ -168,7 +169,7 @@
               <button class="quantity-btn plus-btn">+</button>
             </div>
           </div>
-          <div class="buy"><button class="add-to-cart-btn">加入購物車</button>
+          <div class="buy"><button class="add-to-cart-btn">加入購物</button>
             <button class="checkout-btn">直接結帳</button>
           </div>
         </div>
@@ -196,15 +197,15 @@
                 <button class="quantity-btn plus-btn">+</button>
               </div>
             </div>
-            <div class="buy"><button class="add-to-cart-btn">加入購物車</button>
+            <div class="buy"><button class="add-to-cart-btn">加入購物</button>
               <button class="checkout-btn">直接結帳</button>
             </div>
           </div>
         </div>
-      </div>
+      </div>    
+    </div>
 
     <!-- 關於我們 -->
-    </div>
     <section id="about-us">
       <div class="about-us-container">
         <div class="about-us-text">
@@ -227,7 +228,6 @@
     <footer>
       <div class="contact-info">
         <h3>聯絡 Beans Coffee</h3>
-        <hr>
         <ul>
           <li><img src="https://solciotyfitness.com/wp-content/uploads/2018/01/IG-ICON.png" alt="icon-IG">@Beans Coffee
           </li>
@@ -248,7 +248,6 @@
       </div>
       <div class="message-board">
         <h3>留言板</h3>
-        <hr>
         <form>
           <label for="name">姓名:</label>
           <input type="text" id="name" name="name">
