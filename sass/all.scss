@@ -1,9 +1,9 @@
 @import "reset";
 @import "base";
 // $linkcolor:#000;
-$font-l:18px;
-$font-m:16px;
-$font-s:14px;
+$font-l:1.5rem;
+$font-m:1.25rem;
+$font-s:0.8rem;
 
 
 
@@ -130,7 +130,7 @@ nav li:hover a:not(.cart-btn) {
   .menu-icon {
     display: block; /* 手機版顯示漢堡選單按鈕 */
     cursor: pointer;
-    font-size: 28px;
+    font-size: $font-l;
     color: rgb(232, 237, 236);
     margin-left: auto;
     margin-right: 15px;
@@ -189,12 +189,12 @@ nav li:hover a:not(.cart-btn) {
   color: rgb(0, 6, 18);
   font-weight: bold;
   h2 {
-    font-size: 1.5rem;
+    font-size: $font-l;
     margin-bottom: 0.5rem;
     text-shadow: 1px 1px black;
   }
   p {
-    font-size: 1.2rem;
+    font-size: $font-m;
     line-height: 2;
     margin-top: 1rem;
     margin-bottom: 1.5rem;
@@ -205,10 +205,10 @@ nav li:hover a:not(.cart-btn) {
   .banner-text {
     white-space: nowrap;
     h2 {
-      font-size: 1.2rem;
+      font-size: $font-m;
     }
     p {
-      font-size: 0.8rem;
+      font-size: $font-s;
     }
   }
 }
@@ -223,7 +223,7 @@ nav li:hover a:not(.cart-btn) {
     border: none;
     border-radius: 2.5rem 0 0 2.5rem;
     width: 20rem;
-    font-size: 1.2rem;
+    font-size: $font-m;
   }
   button {
     background-color: rgb(31, 5, 5);
@@ -231,7 +231,7 @@ nav li:hover a:not(.cart-btn) {
     border: none;
     padding: 1.5rem;
     border-radius: 0 1rem 1rem 0;
-    font-size: 1.2rem;
+    font-size: $font-m;
     cursor: pointer;
   }
 }
@@ -249,7 +249,7 @@ nav li:hover a:not(.cart-btn) {
 }
 /* 商品清單 */
 #product-head h2 {
-  font-size: 36px;
+  font-size: $font-l;
   font-weight: bold;
   // padding: 70px 0px 15px 80px;
 }
@@ -283,13 +283,13 @@ nav li:hover a:not(.cart-btn) {
 
 /* 商品名稱 */
 .product-name {
-  font-size: 1.2rem;
+  font-size: $font-m;
   font-weight: bold;
 }
 
 /* 商品敘述 */
 .product-description {
-  font-size: 1rem;
+  font-size: $font-s;
   line-height: 1.3;
   padding: 10px;
   min-width: 230px;
@@ -317,14 +317,14 @@ nav li:hover a:not(.cart-btn) {
 /* 庫存狀態 */
 .inventory {
   margin: 10px;
-  font-size: 0.8rem;
+  font-size: $font-s;
   color: green;
 }
 
 /* 價格 */
 .price {
   margin: 10px;
-  font-size: 1.2rem;
+  font-size: $font-m;
   font-weight: bold;
 }
 
@@ -340,7 +340,7 @@ nav li:hover a:not(.cart-btn) {
   padding: 5px;
   border: none;
   background-color: #ddd;
-  font-size: 1.2rem;
+  font-size: $font-m;
   border-radius: 5px 0 0 5px;
   cursor: pointer;
 }
@@ -351,7 +351,7 @@ nav li:hover a:not(.cart-btn) {
   height: 30px;
   border: none;
   text-align: center;
-  font-size: 1rem;
+  font-size: $font-s;
 }
 
 .product-quantity {
@@ -368,7 +368,7 @@ nav li:hover a:not(.cart-btn) {
   padding: 5px;
   border: none;
   background-color: #ddd;
-  font-size: 1.2rem;
+  font-size: $font-m;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
 }
@@ -389,7 +389,7 @@ nav li:hover a:not(.cart-btn) {
   border-radius: 5px;
   background-color: green;
   color: #fff;
-  font-size: 1.2rem;
+  font-size: $font-m;
   font-weight: bold;
   cursor: pointer;
 }
@@ -403,7 +403,7 @@ nav li:hover a:not(.cart-btn) {
   border-radius: 5px;
   background-color: red;
   color: #fff;
-  font-size: 1.5rem;
+  font-size: $font-l;
   font-weight: bold;
   cursor: pointer;
 }
@@ -415,10 +415,10 @@ nav li:hover a:not(.cart-btn) {
   h2 {
     padding: 30px 0;
     font-weight: bold;
-    font-size: 26px;
+    font-size: $font-l;
   }
   p {
-    font-size: 16px;
+    font-size: $font-s;
     line-height: 1.5;
   }
 }
@@ -482,7 +482,7 @@ footer {
 
 .contact-info h3,
 .message-board h3 {
-  font-size: 24px;
+  font-size: $font-l;
   margin-bottom: 20px;
   color: #607bc0;
   border-bottom: 1px solid #ccc;
@@ -492,7 +492,7 @@ footer {
   line-height: 1.8;
 }
 .contact-info li {
-  font-size: 16px;
+  font-size: $font-s;
   padding: 5px;
 }
 .contact-info img {
@@ -508,7 +508,7 @@ footer {
     flex-direction: column;
   }
   label {
-    font-size: 16px;
+    font-size: $font-s;
     margin-bottom: 5px;
     display: block;
     text-align: left;
@@ -520,7 +520,7 @@ footer {
   margin-bottom: 10px;
   border: none;
   border-radius: 3px;
-  font-size: 16px;
+  font-size: $font-s;
   text-align: left;
   width: 100%;
 }
@@ -537,7 +537,7 @@ footer {
   font-weight: bold;
   border: none;
   border-radius: 3px;
-  font-size: 16px;
+  font-size: $font-s;
   cursor: pointer;
   width: 100%;
 }
@@ -602,7 +602,7 @@ footer {
   h1 {
     text-align: center;
     padding: 30px 0px;
-    font-size: 36px;
+    font-size: $font-l;
     font-weight: bold;
     line-height: 1.3;
   }
@@ -618,7 +618,7 @@ footer {
     width: 100px;
     margin-right: 10px;
     font-weight: bold;
-    font-size: 20px;
+    font-size: $font-m;
   }
 }
 .signup input[type="text"],
@@ -628,7 +628,7 @@ footer {
   width: 100%;
   max-width: 250px;
   height: 30px;
-  font-size: 16px;
+  font-size: $font-s;
   padding: 5px;
   margin-bottom: 10px;
   box-sizing: border-box;
@@ -654,7 +654,7 @@ footer {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  font-size: 16px;
+  font-size: $font-s;
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 4px;
@@ -716,7 +716,7 @@ footer {
   h1 {
     text-align: center;
     font-weight: bold;
-    font-size: 36px;
+    font-size: $font-l;
     padding: 30px 0px;
     line-height: 1.3;
   }
@@ -727,7 +727,7 @@ footer {
     padding-top: 30px;
     padding-bottom: 30px;
     font-weight: bold;
-    font-size: 25px;
+    font-size: $font-l;
   }
   label {
     display: inline-block;
@@ -735,7 +735,7 @@ footer {
     text-align: right;
     margin-right: 10px;
     font-weight: bold;
-    font-size: 20px;
+    font-size: $font-m;
   }
 }
 
@@ -761,7 +761,7 @@ footer {
   border: none;
   border-radius: 5px;
   color: #fff;
-  font-size: 22px;
+  font-size: $font-l;
   padding: 10px 20px;
   cursor: pointer;
   margin: 0 20px;
@@ -830,7 +830,7 @@ footer {
   h2 {
     padding-bottom: 20px;
     font-weight: bold;
-    font-size: 26px;
+    font-size: $font-l;
   }
   table {
     max-width: 100%;
@@ -877,7 +877,7 @@ td.subtotal {
   align-items: center;
   padding-bottom: 20px;
   font-weight: bold;
-  font-size: 25px;
+  font-size: $font-l;
 }
 
 .orderinformation {
@@ -926,7 +926,7 @@ td.subtotal {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: $font-s;
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 10px;
@@ -942,7 +942,7 @@ td.subtotal {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: $font-s;
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 10px;

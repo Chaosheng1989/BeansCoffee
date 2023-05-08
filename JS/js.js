@@ -16,3 +16,7 @@ $('a[href^="#"]').on('click', function(event) {
       }, 1000);
   }
 });
+
+$(document).ready(function () {
+  
+});
