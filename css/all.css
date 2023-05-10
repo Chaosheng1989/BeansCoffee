@@ -420,6 +420,9 @@ nav li:hover a:not(.cart-btn) {
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
+.product-item.hidden {
+  display: none;
+}
 
 @media (max-width: 390px) {
   .product-item {
