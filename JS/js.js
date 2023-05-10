@@ -29,14 +29,18 @@ searchButton.addEventListener('click', () => {
   // 搜索所有產品標題，隱藏未匹配的產品，顯示匹配的產品
   productNames.forEach(name => {
     const text = name.textContent.toLowerCase();
-    if (text.includes(keyword)) {
-      name.closest('.product-item').classList.remove('hidden');
-    } else {
-      name.closest('.product-item').classList.add('hidden');
-    }
+    // 構造跳轉的 URL
+    const url = `#product-head`;
+
+    // 跳轉到 URL
+    window.location.href = url;
+    // if (text.includes(keyword)) {
+    //   name.closest('.product-item').classList.remove('hidden');
+    // } else {
+    //   name.closest('.product-item').classList.add('hidden');
+    // }
   });
 });
-
 
 
 
