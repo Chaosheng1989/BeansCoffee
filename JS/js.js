@@ -17,6 +17,41 @@ $('a[href^="#"]').on('click', function (event) {
   }
 });
 
+//獲取搜索欄位和搜索按鈕及產品標題元素
+const searchInput = document.querySelector('#search-input');
+const searchButton = document.querySelector('#search-button');
+const productNames = document.querySelectorAll('.product-name');
+
+// 綁定搜索按鈕點擊事件
+searchButton.addEventListener('click', () => {
+  // 獲取搜索關鍵字
+  const keyword = searchInput.value.toLowerCase().trim();
+  // 搜索所有產品標題，隱藏未匹配的產品，顯示匹配的產品
+  productNames.forEach(name => {
+    const text = name.textContent.toLowerCase();
+    if (text.includes(keyword)) {
+      name.closest('.product-item').classList.remove('hidden');
+    } else {
+      name.closest('.product-item').classList.add('hidden');
+    }
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //spec-btn 按鈕點選顏色變更
 //選擇每個產品規格按鈕容器元素
 const productSpecsContainers = document.querySelectorAll('.product-specs');
