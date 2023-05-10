@@ -457,7 +457,7 @@ nav li:hover a:not(.cart-btn) {
   display: flex;
   margin: 10px;
 }
-
+/* 規格按鈕 */
 .spec-btn {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -470,8 +470,14 @@ nav li:hover a:not(.cart-btn) {
           align-items: center;
   margin: 5px;
   border-radius: 3px;
-  background-color: #b3d6da;
+  background-color: #fff;
 }
+/* 預設按鈕 */
+.spec-btn.active{
+  background-color: #b3d6da;
+  font-weight: bold;
+}
+
 
 /* 庫存狀態 */
 .inventory {
@@ -550,7 +556,7 @@ nav li:hover a:not(.cart-btn) {
 .add-to-cart-btn {
   display: block;
   margin: 10px auto;
-  padding: 5px;
+  padding: 5px 10px;
   border: none;
   border-radius: 5px;
   background-color: green;
@@ -905,7 +911,6 @@ footer {
   }
   .signup form{
     text-align: left;
-    /* font-size: 16px; */
   }
 } 
 /* login.hmtl 會員登入 */
