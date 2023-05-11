@@ -508,11 +508,11 @@ nav li:hover a:not(.cart-btn) {
   background-color: #fff;
   border: 2px solid #333;
   color: #333;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   border-radius: 4px;
   cursor: pointer;
-  width: 160px;
+  width: 150px;
   height: 50px;
 }
 
