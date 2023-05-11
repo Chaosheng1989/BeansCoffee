@@ -486,7 +486,7 @@ nav li:hover a:not(.cart-btn) {
 }
 .product-head-title {
   width: 100%;
-  padding-left: 5%;
+  padding-left: 10%;
 }
 .product-head-title,
 .product-search-results {
