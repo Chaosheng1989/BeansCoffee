@@ -34,30 +34,41 @@ menuLinks.forEach(link => {
 
 //關鍵字搜索產品列表中的產品
 //獲取搜索欄位和搜索按鈕及產品標題元素
-const searchInput = document.getElementById('search-input');
-const searchButton = document.getElementById('search-button');
-const productItems = document.querySelectorAll('.product-item');
-
-
-
-// 綁定搜索按鈕點擊事件
-searchButton.addEventListener('click', () => {
+const searchButton = document.querySelector('#search-button');
+searchButton.addEventListener('click', function (event) {
   // 獲取搜尋關鍵字，轉換為小寫並去除空白字符
-  const keyword = searchInput.value.trim().toLowerCase();
+  const keyword = document.querySelector('#search-input').value.trim().toLowerCase();
   // 搜索所有產品標題，隱藏未匹配的產品，顯示匹配的產品
-  for (let i = 0; i < productItems.length; i++) {
-    const productName = productItems[i].querySelector('.product-name');
+  const products = document.querySelectorAll('.product-item');
+  for (let i = 0; i < products.length; i++) {
+    const productName = products[i].querySelector('.product-name');
     const text = productName.textContent.trim().toLowerCase();
-  if (text.includes(keyword)) {
-    productItems[i].classList.remove('hidden');
-  } else {
-    productItems[i].classList.add('hidden');
+    if (text.includes(keyword)) {
+      products[i].classList.remove('hidden');
+    } else {
+      products[i].classList.add('hidden');
+    }
   }
-}
+
+  event.preventDefault(); // 阻止表單提交行為
+  // 追加跳轉到商品列表的行
+  location.href = "#product-head";
 });
 
+//獲取product-list-show按鈕
+const showAllBtn = document.querySelector('#show-all-btn');
+//新增點擊#show-all-btn事件，顯示所有產品
+showAllBtn.addEventListener('click', function () {
+  const products = document.querySelectorAll('.product-item.hidden');
+  products.forEach(function (product) {
+    product.classList.remove('hidden');
+  });
+});
 
-
+//跳轉#product-head 增加paddingTop值
+const headerHeight = document.querySelector('header').offsetHeight; // 獲取 header 的高度
+const productHead = document.querySelector('#product-head'); // 獲取 #product-head 元素
+productHead.style.paddingTop = (headerHeight + 20) + 'px'; // 給 #product-head 元素設定一個 padding-top 偏移量
 
 
 
