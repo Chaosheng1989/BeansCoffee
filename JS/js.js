@@ -1,4 +1,4 @@
-//點擊漢堡選單時展開
+//點擊menu漢堡選單時展開
 $(document).ready(function () {
   $('.menu-icon').click(function () {
     $('.menu').toggleClass('menu-show');
@@ -6,7 +6,7 @@ $(document).ready(function () {
   });
 });
 
-//點擊#產生滑動
+//點擊manu#產生滑動
 $('a[href^="#"]').on('click', function (event) {
   var target = $(this.getAttribute('href'));
   if (target.length) {
@@ -17,27 +17,43 @@ $('a[href^="#"]').on('click', function (event) {
   }
 });
 
+
+//漢堡選單時點擊#，menu自動收合
+// 取得所有的選單連結
+const menuLinks = document.querySelectorAll('.menu a');
+
+// 為每個選單連結加上點擊事件
+menuLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    // 移除 .menu-show 的 class
+    document.querySelector('.menu').classList.remove('menu-show');
+  });
+});
+
+
+
+//關鍵字搜索產品列表中的產品
 //獲取搜索欄位和搜索按鈕及產品標題元素
-const searchInput = document.querySelector('#search-input');
-const searchButton = document.querySelector('#search-button');
-const productNames = document.querySelectorAll('.product-name');
+const searchInput = document.getElementById('search-input');
+const searchButton = document.getElementById('search-button');
+const productItems = document.querySelectorAll('.product-item');
+
+
 
 // 綁定搜索按鈕點擊事件
 searchButton.addEventListener('click', () => {
-  // 獲取搜索關鍵字
-  const keyword = searchInput.value.toLowerCase().trim();
+  // 獲取搜尋關鍵字，轉換為小寫並去除空白字符
+  const keyword = searchInput.value.trim().toLowerCase();
   // 搜索所有產品標題，隱藏未匹配的產品，顯示匹配的產品
-  productNames.forEach(name => {
-    const text = name.textContent.toLowerCase();
-    // // 構造跳轉的 URL
-    // const url = `#product-head`;
-
-    if (text.includes(keyword)) {
-      name.closest('.product-item').classList.remove('hidden');
-    } else {
-      name.closest('.product-item').classList.add('hidden');
-    }
-  });
+  for (let i = 0; i < productItems.length; i++) {
+    const productName = productItems[i].querySelector('.product-name');
+    const text = productName.textContent.trim().toLowerCase();
+  if (text.includes(keyword)) {
+    productItems[i].classList.remove('hidden');
+  } else {
+    productItems[i].classList.add('hidden');
+  }
+}
 });
 
 
