@@ -105,27 +105,6 @@ productSpecsContainers.forEach(container => {
   });
 });
 
-//+-按鈕，quantity-input 增加或減少
-// 獲取所有的加減按鈕
-const minusBtns = document.querySelectorAll('.quantity-btn.minus-btn');
-const plusBtns = document.querySelectorAll('.quantity-btn.plus-btn');
-
-// 為所有的加減按鈕添加監聽器
-minusBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const input = btn.parentNode.querySelector('.quantity-input');
-    if (input.value > 1) {
-      input.value = parseInt(input.value) - 1;
-    }
-  });
-});
-
-plusBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const input = btn.parentNode.querySelector('.quantity-input');
-    input.value = parseInt(input.value) + 1;
-  });
-});
 
 
 //規格、數量連動 單價及總價格

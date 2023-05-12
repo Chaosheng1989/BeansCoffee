@@ -641,6 +641,9 @@ nav li:hover a:not(.cart-btn) {
   border-radius: 4px;
   color: #000;
 }
+.product-quantity button:active{
+  background-color: #c0c0c0;
+}
 /* 減號按鈕 */
 .quantity .minus-btn {
   background-color: #ddd;
