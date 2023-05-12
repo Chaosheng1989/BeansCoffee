@@ -18,6 +18,17 @@ $('a[href^="#"]').on('click', function (event) {
 });
 
 
+//banner 載入網頁時，文字backInDown效果
+const elements = document.querySelectorAll('.animate__backInDown');
+
+elements.forEach(element => {
+  element.classList.add('animate__animated');
+  setTimeout(() => {
+    element.classList.add('animate__backInDown');
+  }, 500);
+});
+
+
 //漢堡選單時點擊#，menu自動收合
 // 取得所有的選單連結
 const menuLinks = document.querySelectorAll('.menu a');
@@ -29,6 +40,8 @@ menuLinks.forEach(link => {
     document.querySelector('.menu').classList.remove('menu-show');
   });
 });
+
+
 
 
 

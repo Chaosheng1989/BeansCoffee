@@ -428,6 +428,10 @@ nav li:hover a:not(.cart-btn) {
   text-overflow: ellipsis;
 }
 
+.banner-text h1,
+.banner-text p {
+  display: inline-block;
+}
 .search-form {
   display: -webkit-box;
   display: -ms-flexbox;
