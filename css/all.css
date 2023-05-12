@@ -592,6 +592,10 @@ nav li:hover a:not(.cart-btn) {
   display: flex;
   margin: 10px;
 }
+.product-specs button{
+  border-radius: 3px;
+  border: 2px solid #333;
+}
 /* 規格按鈕 */
 .spec-btn {
   display: -webkit-box;
@@ -604,8 +608,6 @@ nav li:hover a:not(.cart-btn) {
   -ms-flex-align: center;
   align-items: center;
   margin: 5px;
-  border-radius: 3px;
-  border: 2px solid #333;
   background-color: #fff;
   cursor: pointer;
 }
@@ -634,12 +636,12 @@ nav li:hover a:not(.cart-btn) {
   font-size: 1.2rem;
   padding: 5px 20px;
   cursor: pointer;
+  border: 1px solid #333;
+  border-radius: 4px;
 }
 /* 減號按鈕 */
 .quantity .minus-btn {
   background-color: #ddd;
-  border: 2px solid #333;
-  border-radius: 4px;
   width: 30px;
   padding: 5px;
 }
@@ -656,8 +658,6 @@ nav li:hover a:not(.cart-btn) {
 /* 加號按鈕 */
 .quantity .plus-btn {
   background-color: #ddd;
-  border: 2px solid #333;
-  border-radius: 4px;
   width: 30px;
   padding: 5px;
 }
