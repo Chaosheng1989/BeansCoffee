@@ -606,6 +606,7 @@ nav li:hover a:not(.cart-btn) {
   margin: 5px;
   border-radius: 3px;
   background-color: #fff;
+  cursor: pointer;
 }
 /* 預設按鈕 */
 .spec-btn.active {
@@ -613,69 +614,51 @@ nav li:hover a:not(.cart-btn) {
   font-weight: bold;
 }
 
-/* 庫存狀態 */
-.inventory {
-  margin: 10px;
-  font-size: 0.8rem;
-  color: green;
-}
 
-/* 價格 */
-.price {
-  margin: 10px;
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-/* 數量 */
-.quantity {
-  display: -webkit-box;
-  display: -ms-flexbox;
+/* 產品價格 */
+.product-price{
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
+  justify-content:space-around;
   align-items: center;
-  margin: 10px;
+}
+.product-price-info div {
+  margin-bottom: 10px;
 }
 
-/* 減號按鈕 */
-.quantity .minus-btn {
+/* 產品數量 */
+.product-quantity {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100px;
   padding: 5px;
-  border: none;
-  background-color: #ddd;
-  font-size: 1.2rem;
-  border-radius: 5px 0 0 5px;
+}
+.product-quantity button{
+  font-size: 1rem;
+  padding: 3px 8px;
   cursor: pointer;
 }
-
-/* 數量輸入框 */
-.quantity .input {
-  width: 50px;
-  height: 30px;
+/* 減號按鈕 */
+.quantity .minus-btn {
   border: none;
-  text-align: center;
-  font-size: 1rem;
+  background-color: #ddd;
+  border-radius: 5px 0 0 5px;
 }
-
-.product-quantity {
-  text-align: center;
-}
-
+/* 數量輸入框 */
 .quantity-input {
   text-align: center;
   width: 30px;
+  padding: 5px 0;
 }
 
 /* 加號按鈕 */
 .quantity .plus-btn {
-  padding: 5px;
   border: none;
   background-color: #ddd;
-  font-size: 1.2rem;
   border-radius: 0 5px 5px 0;
-  cursor: pointer;
 }
 
+/* 購物按鈕 */
 .buy {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -698,7 +681,11 @@ nav li:hover a:not(.cart-btn) {
   font-size: 1.2rem;
   cursor: pointer;
 }
-
+.add-to-cart-btn:hover{
+  color: #000;
+  font-weight: bold;
+  background-color: greenyellow;
+}
 /* 直接結帳按鈕 */
 .checkout-btn {
   display: block;
@@ -710,6 +697,11 @@ nav li:hover a:not(.cart-btn) {
   color: #fff;
   font-size: 1.2rem;
   cursor: pointer;
+}
+.checkout-btn:hover{
+  color: #000;
+  font-weight: bold;
+  background-color: orangered;
 }
 
 /* 關於Beans Coffee */
