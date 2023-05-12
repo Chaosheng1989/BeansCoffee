@@ -129,4 +129,72 @@ plusBtns.forEach(btn => {
 
 
 //規格、數量連動 單價及總價格
+// 定義商品項目元素
+const productItems = document.querySelectorAll('.product-item');
 
+// 迭代商品項目元素
+productItems.forEach(item => {
+  // 獲取商品規格元素和數量輸入框元素
+  const specs = item.querySelector('.product-specs');
+  const quantityInput = item.querySelector('.quantity-input');
+
+  // 迭代商品規格按鈕元素，為每個按鈕設置點擊事件
+  const specBtns = specs.querySelectorAll('.spec-btn');
+  specBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // 獲取選中的規格價格和重量
+      const selectedPrice = btn.getAttribute('data-price');
+      const selectedWeight = btn.getAttribute('data-weight');
+
+      // 更新單價和總價格元素的值
+      const unitPrice = item.querySelector('.unit-price .price-value');
+      const totalPrice = item.querySelector('.total-price .price-value');
+      unitPrice.textContent = selectedPrice;
+      totalPrice.textContent = selectedPrice;
+
+      // 更新數量輸入框的值
+      quantityInput.value = 1;
+
+      // 將所有規格按鈕設置為未選中狀態，將選中的規格按鈕設置為選中狀態
+      specBtns.forEach(btn => btn.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  // 為數量減少按鈕設置點擊事件
+  const minusBtn = item.querySelector('.minus-btn');
+  minusBtn.addEventListener('click', () => {
+    let value = parseInt(quantityInput.value);
+    if (value > 1) {
+      value--;
+      quantityInput.value = value;
+    }
+    updateTotalPrice();
+  });
+
+  // 為數量增加按鈕設置點擊事件
+  const plusBtn = item.querySelector('.plus-btn');
+  plusBtn.addEventListener('click', () => {
+    let value = parseInt(quantityInput.value);
+    value++;
+    quantityInput.value = value;
+    updateTotalPrice();
+  });
+
+  // 為數量輸入框設置輸入事件
+  quantityInput.addEventListener('input', () => {
+    let value = parseInt(quantityInput.value);
+    if (isNaN(value) || value <= 0) {
+      quantityInput.value = 1;
+    }
+    updateTotalPrice();
+  });
+
+  // 定義更新總價格的函數
+  function updateTotalPrice() {
+    const unitPrice = parseInt(item.querySelector('.unit-price .price-value').textContent);
+    let quantity = parseInt(quantityInput.value);
+    const totalPrice = item.querySelector('.total-price .price-value');
+    totalPrice.textContent = unitPrice * quantity;
+  }
+});

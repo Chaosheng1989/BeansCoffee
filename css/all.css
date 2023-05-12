@@ -616,11 +616,6 @@ nav li:hover a:not(.cart-btn) {
 
 
 /* 產品價格 */
-.product-price{
-  display: flex;
-  justify-content:space-around;
-  align-items: center;
-}
 .product-price-info div {
   margin-bottom: 10px;
 }
@@ -628,14 +623,15 @@ nav li:hover a:not(.cart-btn) {
 /* 產品數量 */
 .product-quantity {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
-  width: 100px;
-  padding: 5px;
+  width: 100%;
+  height: auto;
+  padding: 15px 0;
 }
 .product-quantity button{
-  font-size: 1rem;
-  padding: 3px 8px;
+  font-size: 1.2rem;
+  padding: 5px 20px;
   cursor: pointer;
 }
 /* 減號按鈕 */
@@ -647,8 +643,9 @@ nav li:hover a:not(.cart-btn) {
 /* 數量輸入框 */
 .quantity-input {
   text-align: center;
-  width: 30px;
-  padding: 5px 0;
+  font-size: 1.2rem;
+  width: 80px;
+  padding: 5px;
 }
 
 /* 加號按鈕 */
