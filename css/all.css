@@ -605,6 +605,7 @@ nav li:hover a:not(.cart-btn) {
   align-items: center;
   margin: 5px;
   border-radius: 3px;
+  border: 2px solid #333;
   background-color: #fff;
   cursor: pointer;
 }
@@ -636,23 +637,29 @@ nav li:hover a:not(.cart-btn) {
 }
 /* 減號按鈕 */
 .quantity .minus-btn {
-  border: none;
   background-color: #ddd;
-  border-radius: 5px 0 0 5px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  width: 30px;
+  padding: 5px;
 }
 /* 數量輸入框 */
 .quantity-input {
   text-align: center;
   font-size: 1.2rem;
-  width: 80px;
+  width: 60px;
   padding: 5px;
+  border: 2px solid #333;
+  border-radius: 4px;
 }
 
 /* 加號按鈕 */
 .quantity .plus-btn {
-  border: none;
   background-color: #ddd;
-  border-radius: 0 5px 5px 0;
+  border: 2px solid #333;
+  border-radius: 4px;
+  width: 30px;
+  padding: 5px;
 }
 
 /* 購物按鈕 */
