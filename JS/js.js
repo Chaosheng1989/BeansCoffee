@@ -192,9 +192,20 @@ productItems.forEach(item => {
 });
 
 
+
 //cart.html  購物清單 
-//產品列表 加入購物  直接結帳
+//產品列表 點擊 加入購物  .add-to-cart-btn
+// 在 index.html 中選取 "add-to-cart-btn" 按鈕
+const addToCartBtns = document.querySelectorAll('.add-to-cart-btn');
 
 
-//購物車 移除按鈕
-// 選取所有移除按鈕
+//cart-remove 移除購物清單
+// 選取cart-remove按鈕
+var removeBtn = document.querySelector('.cart-remove');
+
+// 當按鈕被點擊時，刪除.cart-items元素
+removeBtn.addEventListener('click', function() {
+  var cartItems = document.querySelector('.cart-items');
+  cartItems.parentNode.removeChild(cartItems);
+});
+
