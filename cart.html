@@ -11,6 +11,9 @@
   <meta property="og:title" content="Beans Coffee" />
   <title>Beans Coffee購物清單</title>
   <link rel="stylesheet" href="css/all.css" class="css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="/css/animate.min.css" class="css">
+  <script src="jquery-3.6.4.min.js"></script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TT1H98HX27"></script>
   <script>
@@ -20,8 +23,8 @@
 
     gtag('config', 'G-TT1H98HX27');
   </script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="JS/js.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="JS/js.js"></script> -->
 </head>
 
 <body>
@@ -49,7 +52,6 @@
       <img
         src="https://media.istockphoto.com/id/1411720693/photo/tasty-cups-of-coffee.jpg?s=612x612&w=0&k=20&c=8k47TxB-D4c5J-dBA1lY_9MeTam4mN7-2vKVS4ge0SM="
         alt="banner image">
-
       <div class="cart-list">
         <h1>Beans Coffee 購物清單</h1>
         <table>
@@ -62,40 +64,33 @@
               <th>操作</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>商品 1</td>
-              <td class="price">100</td>
-              <td class="quantity-cell">
-                <input type="number" class="quantity" value="1">
-              </td>
-              <td class="subtotal"></td>
-              <td>
-                <button class="remove">移除</button>
-              </td>
-            </tr>
-            <tr>
-              <td>商品 2</td>
-              <td class="price">200</td>
-              <td class="quantity-cell">
-                <input type="number" class="quantity" value="1">
-              </td>
-              <td class="subtotal"></td>
-              <td>
-                <button class="remove">移除</button>
-              </td>
-            </tr>
-          </tbody>
+          <div class="cart-items">
+            <tbody>
+              <tr>
+                <td class="cart-product" id="cart-product-1"><span class="cart-product-name">${product-name}</span></td>
+                <td class="cart-unit-price"><span class="cart-unit-price-value"></span>${price-value}</td>
+                <td class="quantity-cell">
+                  <input type="number" class="cart-quantity-input" value="${quantity-input}" min="1">
+                </td>
+                <td class="subtotal"><span class="cart-subtotal">${cart-unit-price-value * quantity-input}</span></td>
+                <td>
+                  <button class="cart-remove">移除</button>
+                </td>
+              </tr>
+            </tbody>
+          </div>
         </table>
+        <div class="cart-empty">
+          <p>購物車是空的。繼續瀏覽產品列表，選擇你想要的產品。</p>
+        </div>
         <div class="total">
-          <div class="shipping">運費：<span>100</span></div>
-          <div class="grand-total">總金額：<span>0</span></div>
+          <div class="shipping" date-freight="200">運費：<span>200</span></div>
+          <div class="grand-total">總金額：<span class="grand-total-value"></span></div>
         </div>
         <div class="shiooinginformation">
           <div class="orderinformation">
             <h2>收件人資訊</h2>
           </div>
-          <br>
           <form>
             <div>
               <label for="name">姓名：</label>
@@ -110,12 +105,14 @@
               <input type="text" id="address" required>
             </div>
           </form>
-          <button class="submit">確認送出</button>
-          <button class="continue">繼續購物</button>
+          <button class="cart-submit">確認送出</button>
+          <button class="cart-continue" onclick="window.location.href='index.html#product-head'">繼續購物</button>
         </div>
       </div>
     </div>
   </div>
+  <script src="JS/jquery-3.6.4.min.js"></script>
+  <script src="JS/js.js"></script>
 </body>
 
 </html>

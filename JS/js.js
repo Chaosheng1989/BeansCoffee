@@ -190,3 +190,11 @@ productItems.forEach(item => {
     totalPrice.textContent = unitPrice * quantity;
   }
 });
+
+
+//cart.html  購物清單 
+//產品列表 加入購物  直接結帳
+
+
+//購物車 移除按鈕
+// 選取所有移除按鈕
