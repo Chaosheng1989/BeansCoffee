@@ -596,7 +596,7 @@ nav li:hover a:not(.cart-btn) {
   display: flex;
   margin: 10px;
 }
-.product-specs button{
+.product-specs button {
   border-radius: 3px;
   border: 2px solid #333;
   color: #000;
@@ -622,7 +622,6 @@ nav li:hover a:not(.cart-btn) {
   font-weight: bold;
 }
 
-
 /* 產品價格 */
 .product-price-info div {
   margin-bottom: 10px;
@@ -637,7 +636,7 @@ nav li:hover a:not(.cart-btn) {
   height: auto;
   padding: 15px 0;
 }
-.product-quantity button{
+.product-quantity button {
   font-size: 1.2rem;
   padding: 5px 20px;
   cursor: pointer;
@@ -645,7 +644,7 @@ nav li:hover a:not(.cart-btn) {
   border-radius: 4px;
   color: #000;
 }
-.product-quantity button:active{
+.product-quantity button:active {
   background-color: #c0c0c0;
 }
 /* 減號按鈕 */
@@ -694,7 +693,7 @@ nav li:hover a:not(.cart-btn) {
   font-size: 1.2rem;
   cursor: pointer;
 }
-.add-to-cart-btn:hover{
+.add-to-cart-btn:hover {
   color: #000;
   font-weight: bold;
   background-color: greenyellow;
@@ -711,7 +710,7 @@ nav li:hover a:not(.cart-btn) {
   font-size: 1.2rem;
   cursor: pointer;
 }
-.checkout-btn:hover{
+.checkout-btn:hover {
   color: #000;
   font-weight: bold;
   background-color: orangered;
@@ -1153,8 +1152,18 @@ footer {
   padding: 10px 20px;
   cursor: pointer;
   margin: 3%;
+  width: 150px;
 }
 
+
+@media screen and (max-width: 999px) {
+  .login button {
+    flex-direction: row;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+}
 .login button:hover {
   background-color: #dfbf0e;
   color: #000;
@@ -1268,13 +1277,13 @@ td.subtotal {
   align-items: center;
   width: 50px;
 }
-.cart-items .hidden{
+.cart-items .hidden {
   display: none;
 }
-.cart-items{
+.cart-items {
   display: none !important;
 }
-.cart-empty{
+.cart-empty {
   display: none;
   -webkit-box-pack: space-evenly;
   -ms-flex-pack: space-evenly;
@@ -1283,7 +1292,7 @@ td.subtotal {
   -ms-flex-align: center;
   margin: 20px auto;
 }
-.cart-empty .show{
+.cart-empty .show {
   display: flex;
 }
 .total {
