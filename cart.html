@@ -64,27 +64,25 @@
               <th>操作</th>
             </tr>
           </thead>
-          <div class="cart-items" id="cart-product-1">
-            <tbody>
-              <tr>
-                <td class="cart-product"><span class="cart-product-name"></span></td>
-                <td class="cart-unit-price"><span class="cart-unit-price-value"></span></td>
-                <td class="quantity-cell">
-                  <input type="number" class="cart-quantity-input" value="1" min="1">
-                </td>
-                <td class="subtotal"><span class="cart-subtotal"></span></td>
-                <td>
-                  <button class="cart-remove">移除</button>
-                </td>
-              </tr>
-            </tbody>
-          </div>
+          <tbody class="cart-items" id="cart-product-1">
+            <tr>
+              <td class="cart-product"><span class="cart-product-name"></span></td>
+              <td class="cart-unit-price"><span class="cart-unit-price-value"></span></td>
+              <td class="quantity-cell">
+                <input type="number" class="cart-quantity-input" value="1" min="1">
+              </td>
+              <td class="subtotal"><span class="cart-subtotal"></span></td>
+              <td>
+                <button class="cart-remove" type="button">移除</button>
+              </td>
+            </tr>
+          </tbody>
         </table>
         <div class="cart-empty">
-          <p>購物車是空的。繼續瀏覽產品列表，選擇你想要的產品。</p>
+          <p>購物車是空的。<br>繼續瀏覽產品列表，選擇你想要的產品。</p>
         </div>
         <div class="total">
-          <div class="shipping" date-freight="200">運費：<span>200</span></div>
+          <div class="shipping">運費：<span date-freight="200">200</span></div>
           <div class="grand-total">總金額：<span class="grand-total-value"></span></div>
         </div>
         <div class="shiooinginformation">
@@ -105,13 +103,15 @@
               <input type="text" id="address" required>
             </div>
           </form>
-            <button class="cart-submit">確認送出</button>
-            <button class="cart-continue" onclick="window.location.href='index.html#product-head'">繼續購物</button>
+          <button class="cart-submit" type="button">確認送出</button>
+          <button class="cart-continue" onclick="window.location.href='index.html#product-head'"
+            type="button">繼續購物</button>
         </div>
       </div>
     </div>
   </div>
-  <script src="JS/jquery-3.6.4.min.js"></script>
+  <!-- <script src="JS/jquery-3.6.4.min.js"></script> -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script src="JS/js.js"></script>
 </body>
 

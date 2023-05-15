@@ -201,11 +201,42 @@ const addToCartBtns = document.querySelectorAll('.add-to-cart-btn');
 
 //cart-remove 移除購物清單
 // 選取cart-remove按鈕
-var removeBtn = document.querySelector('.cart-remove');
+$(document).ready(function() {
+  // 監聽 cart-remove 按鈕的點擊事件
+  $('.cart-remove').click(function() {
+    // 刪除點擊所在的 cart-items
+    $(this).closest('.cart-items').remove();
+    
+    // 檢查是否還有其他 cart-items，如果沒有，顯示 cart-empty
+    if ($('.cart-items').length === 0) {
+      $('.cart-empty').show();
+    }
+    
+    // 更新總金額
+    updateGrandTotal();
+  });
 
-// 當按鈕被點擊時，刪除.cart-items元素
-removeBtn.addEventListener('click', function() {
-  var cartItems = document.querySelector('.cart-items');
-  cartItems.parentNode.removeChild(cartItems);
+  // 函數：更新總金額
+  function updateGrandTotal() {
+    var grandTotal = 0;
+    $('.cart-items').each(function() {
+      // 獲取數量和單價
+      var quantity = parseInt($(this).find('.cart-quantity-input').val());
+      var unitPrice = parseFloat($(this).find('.cart-unit-price-value').text());
+      
+      // 計算小計並累加到總金額
+      var subtotal = quantity * unitPrice;
+      grandTotal += subtotal;
+      
+      // 更新小計顯示
+      $(this).find('.cart-subtotal').text(subtotal.toFixed(2));
+    });
+
+    // 加上運費
+    var shipping = parseFloat($('.shipping span').attr('date-freight'));
+    grandTotal += shipping;
+    
+    // 更新總金額顯示
+    $('.grand-total-value').text(grandTotal.toFixed(2));
+  }
 });
-

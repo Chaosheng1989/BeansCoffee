@@ -152,8 +152,8 @@ img {
 body {
   font-family: "Microsoft JhengHei Bold", sans-serif;
 }
-
-/* *{  
+/* 
+*{  
   outline: 1px solid #000;
 } */
 .container {
@@ -1214,7 +1214,7 @@ footer {
 
 .cart-list {
   max-width: 800px;
-  width: 100%;
+  width: 80%;
   height: auto;
   margin: 0 auto;
   padding: 20px 0;
@@ -1225,7 +1225,7 @@ footer {
   border-radius: 0 0 10px 10px;
 }
 .cart-list h1 {
-  padding-top: 10%;
+  padding-top: 50px;
   padding-bottom: 5%;
   font-weight: bold;
   font-size: 26px;
@@ -1237,9 +1237,8 @@ footer {
   margin: 0 auto;
   height: auto;
 }
-
 .cart-list th,
-td {
+.cart-list td {
   padding: 10px;
   text-align: center;
   vertical-align: middle;
@@ -1247,27 +1246,27 @@ td {
   line-height: 20px;
 }
 
-th {
+.cart-list th {
   background-color: #ccc;
   border: 1px solid #fff;
   white-space: nowrap;
 }
 
-td.price,
-td.subtotal {
+.cart-list td.price,
+.cart-list td.subtotal {
   font-weight: bold;
 }
 
-td.subtotal {
+.cart-list td.subtotal {
   color: blue;
 }
 
-.quantity-cell {
+.cart-list .quantity-cell {
   vertical-align: middle;
   width: 80px;
 }
 
-.cart-quantity-input {
+.cart-list .cart-quantity-input {
   text-align: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
@@ -1277,25 +1276,40 @@ td.subtotal {
   align-items: center;
   width: 50px;
 }
-.cart-items .hidden {
-  display: none;
+.cart-items{
+  display:none;
 }
-.cart-items {
-  display: none !important;
+.cart-items .show{
+  display: table-row-group;
+  vertical-align: top;
 }
 .cart-empty {
-  display: none;
+  display: flex;
   -webkit-box-pack: space-evenly;
   -ms-flex-pack: space-evenly;
   justify-content: space-evenly;
   -webkit-box-align: center;
   -ms-flex-align: center;
   margin: 20px auto;
+  padding: 20px;
+  height: auto;
 }
-.cart-empty .show {
-  display: flex;
+.cart-empty p {
+  line-height: 1.3;
+  font-size: 16px;
 }
-.total {
+@media (max-width: 500px)  {
+  .cart-empty p{
+    font-size: 14px;
+  }
+}
+.cart-empty .hide {
+  display: none;
+}
+.cart-remove{
+  white-space: nowrap;
+}
+.cart-list .total {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1312,48 +1326,48 @@ td.subtotal {
   padding-bottom: 20px;
 }
 
-.orderinformation {
+.cart-list .orderinformation {
   margin: 0 auto;
 }
-.orderinformation h2 {
+.cart-list .orderinformation h2 {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
-.shiooinginformation button {
+.cart-list .shiooinginformation button {
   padding: 5px 10px;
   background-color: #ccc;
   border: none;
   cursor: pointer;
 }
 
-.shiooinginformation button:hover {
+.cart-list .shiooinginformation button:hover {
   background-color: #aaa;
 }
 
-.shiooinginformation input[type="number"] {
+.cart-list .shiooinginformation input[type="number"] {
   width: 50px;
 }
 
-.shiooinginformation form div {
+.cart-list .shiooinginformation form div {
   margin-bottom: 10px;
 }
 
-.shiooinginformation form label {
+.cart-list .shiooinginformation form label {
   display: inline-block;
   width: 80px;
   font-weight: bold;
 }
 
-.shiooinginformation form input {
+.cart-list .shiooinginformation form input {
   padding: 5px;
   width: 200px;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
 
-.shiooinginformation button.cart-submit {
+.cart-list .shiooinginformation button.cart-submit {
   background-color: red;
   border: none;
   color: rgb(5, 1, 27);
@@ -1368,13 +1382,13 @@ td.subtotal {
   border-radius: 10px;
   margin-right: 50px;
 }
-.shiooinginformation button.cart-submit:hover {
+.cart-list .shiooinginformation button.cart-submit:hover {
   background-color: yellow;
   color: #000;
   padding: 13px 22px;
   font-weight: bold;
 }
-.shiooinginformation button.cart-continue {
+.cart-list .shiooinginformation button.cart-continue {
   background-color: #008cba;
   border: none;
   color: rgb(21, 19, 19);
@@ -1388,7 +1402,7 @@ td.subtotal {
   cursor: pointer;
   border-radius: 10px;
 }
-.shiooinginformation button.cart-continue:hover {
+.cart-list .shiooinginformation button.cart-continue:hover {
   background-color: blue;
   color: #000;
   font-weight: bold;
