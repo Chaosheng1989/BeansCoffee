@@ -25,6 +25,84 @@
   </script>
   <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="JS/js.js"></script> -->
+  <script>// 在 cart.html 載入時更新購物車狀態和顯示購物清單
+    document.addEventListener('DOMContentLoaded', function() {
+      updateCartStatus();
+      displayCartItems();
+    });
+    
+    function updateCartStatus() {
+      var cartList = getCartList();
+      var subtotal = calculateSubtotal(cartList);
+      var total = subtotal;
+      document.getElementById('subtotal').innerText = subtotal.toFixed(2);
+      document.getElementById('total').innerText = total.toFixed(2);
+    }
+    
+    function displayCartItems() {
+      var cartList = getCartList();
+      var cartItemsContainer = document.getElementById('cart-items');
+      cartItemsContainer.innerHTML = '';
+    
+      for (var i = 0; i < cartList.length; i++) {
+        var cartItem = cartList[i];
+        var row = document.createElement('tr');
+        var nameCell = document.createElement('td');
+        var specCell = document.createElement('td');
+        var priceCell = document.createElement('td');
+        var quantityCell = document.createElement('td');
+        var removeBtnCell = document.createElement('td');
+        var removeBtn = document.createElement('button');
+    
+        nameCell.innerText = cartItem.name;
+        specCell.innerText = cartItem.spec;
+        priceCell.innerText = cartItem.price;
+        quantityCell.innerText = cartItem.quantity;
+    
+        removeBtn.innerText = '移除';
+        removeBtn.addEventListener('click', removeCartItem.bind(null, i));
+    
+        removeBtnCell.appendChild(removeBtn);
+    
+        row.appendChild(nameCell);
+        row.appendChild(specCell);
+        row.appendChild(priceCell);
+        row.appendChild(quantityCell);
+        row.appendChild(removeBtnCell);
+    
+        cartItemsContainer.appendChild(row);
+      }
+    }
+    
+    function getCartList() {
+      var cartList = localStorage.getItem('cartList');
+      if (cartList) {
+        return JSON.parse(cartList);
+      }
+      return [];
+    }
+    
+    function calculateSubtotal(cartList) {
+      var subtotal = 0;
+      for (var i = 0; i < cartList.length; i++) {
+        var item = cartList[i];
+        var itemPrice = parseFloat(item.price);
+        var itemQuantity = parseInt(item.quantity);
+        var itemTotal = itemPrice * itemQuantity;
+        subtotal += itemTotal;
+      }
+      return subtotal;
+    }
+    
+    function removeCartItem(index) {
+      var cartList = getCartList();
+      cartList.splice(index, 1);
+      localStorage.setItem('cartList', JSON.stringify(cartList));
+      updateCartStatus();
+      displayCartItems();
+    }
+    
+    </script>
 </head>
 
 <body>
@@ -66,7 +144,8 @@
             </tr>
           </thead>
           <tbody class="cart-items" id="cart-product-1">
-            <tr>
+            <!-- 購物清單內的項目動態生成 -->
+            <!-- <tr>
               <td class="cart-product"><span class="cart-product-name"></span></td>
               <td class="cart-product-specs"><span class="cart-product-spec"></span></td>
               <td class="cart-unit-price"><span class="cart-unit-price-value"></span></td>
@@ -77,7 +156,7 @@
               <td>
                 <button class="cart-remove" type="button">移除</button>
               </td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
         <div class="cart-empty">
@@ -85,7 +164,7 @@
         </div>
         <div class="total">
           <div class="shipping">運費：<span date-freight="200">200</span></div>
-          <div class="grand-total">總金額：<span class="grand-total-value"></span></div>
+          <div class="grand-total">總金額：<span class="cart-grand-total-value"></span></div>
         </div>
         <div class="shiooinginformation">
           <div class="orderinformation">
