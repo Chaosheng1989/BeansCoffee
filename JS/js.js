@@ -95,6 +95,8 @@ productHead.style.paddingTop = (headerHeight + 20) + 'px'; // 給 #product-head 
 
 
 //spec-btn 按鈕點選顏色變更
+
+//原生JS寫法
 //選擇每個產品規格按鈕容器元素
 const productSpecsContainers = document.querySelectorAll('.product-specs');
 // 為每個容器元素中的規格按鈕添加點擊事件監聽器
@@ -117,6 +119,28 @@ productSpecsContainers.forEach(container => {
     });
   });
 });
+
+
+//JQuery寫法
+// 選擇每個產品規格按鈕容器元素
+// $('.product-specs').each(function() {
+//   var specBtns = $(this).find('.spec-btn');
+
+//   specBtns.on('click', function() {
+//     var btn = $(this);
+
+//     // 如果按鈕已經是活躍狀態，則刪除active類
+//     if (btn.hasClass('active')) {
+//       btn.removeClass('active');
+//     }
+//     // 如果按鈕不是活躍狀態，則從所有按鈕中刪除active類，並將其添加到當前點擊的按鈕中
+//     else {
+//       specBtns.removeClass('active');
+//       btn.addClass('active');
+//     }
+//   });
+// });
+
 
 
 
