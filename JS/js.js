@@ -158,338 +158,338 @@ if (isIndexPage) {
 
 //規格、數量連動 單價及總價格
 // 定義商品項目元素
-if (isIndexPage){
-const productItems = document.querySelectorAll('.product-item');
+if (isIndexPage) {
+  const productItems = document.querySelectorAll('.product-item');
 
-// 迭代商品項目元素
-productItems.forEach(item => {
-  // 獲取商品規格元素和數量輸入框元素
-  const specs = item.querySelector('.product-specs');
-  const quantityInput = item.querySelector('.quantity-input');
+  // 迭代商品項目元素
+  productItems.forEach(item => {
+    // 獲取商品規格元素和數量輸入框元素
+    const specs = item.querySelector('.product-specs');
+    const quantityInput = item.querySelector('.quantity-input');
 
-  // 迭代商品規格按鈕元素，為每個按鈕設置點擊事件
-  const specBtns = specs.querySelectorAll('.spec-btn');
-  specBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // 獲取選中的規格價格和重量
-      const selectedPrice = btn.getAttribute('data-price');
-      const selectedWeight = btn.getAttribute('data-weight');
+    // 迭代商品規格按鈕元素，為每個按鈕設置點擊事件
+    const specBtns = specs.querySelectorAll('.spec-btn');
+    specBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // 獲取選中的規格價格和重量
+        const selectedPrice = btn.getAttribute('data-price');
+        const selectedWeight = btn.getAttribute('data-weight');
 
-      // 更新單價和總價格元素的值
-      const unitPrice = item.querySelector('.unit-price .price-value');
-      const totalPrice = item.querySelector('.total-price .price-value');
-      unitPrice.textContent = selectedPrice;
-      totalPrice.textContent = selectedPrice;
+        // 更新單價和總價格元素的值
+        const unitPrice = item.querySelector('.unit-price .price-value');
+        const totalPrice = item.querySelector('.total-price .price-value');
+        unitPrice.textContent = selectedPrice;
+        totalPrice.textContent = selectedPrice;
 
-      // 更新數量輸入框的值
-      quantityInput.value = 1;
+        // 更新數量輸入框的值
+        quantityInput.value = 1;
 
-      // 將所有規格按鈕設置為未選中狀態，將選中的規格按鈕設置為選中狀態
-      specBtns.forEach(btn => btn.classList.remove('active'));
-      btn.classList.add('active');
+        // 將所有規格按鈕設置為未選中狀態，將選中的規格按鈕設置為選中狀態
+        specBtns.forEach(btn => btn.classList.remove('active'));
+        btn.classList.add('active');
+      });
     });
-  });
 
-  // 為數量減少按鈕設置點擊事件
-  const minusBtn = item.querySelector('.minus-btn');
-  minusBtn.addEventListener('click', () => {
-    let value = parseInt(quantityInput.value);
-    if (value > 1) {
-      value--;
+    // 為數量減少按鈕設置點擊事件
+    const minusBtn = item.querySelector('.minus-btn');
+    minusBtn.addEventListener('click', () => {
+      let value = parseInt(quantityInput.value);
+      if (value > 1) {
+        value--;
+        quantityInput.value = value;
+      }
+      updateTotalPrice();
+    });
+
+    // 為數量增加按鈕設置點擊事件
+    const plusBtn = item.querySelector('.plus-btn');
+    plusBtn.addEventListener('click', () => {
+      let value = parseInt(quantityInput.value);
+      value++;
       quantityInput.value = value;
+      updateTotalPrice();
+    });
+
+    // 為數量輸入框設置輸入事件
+    quantityInput.addEventListener('input', () => {
+      let value = parseInt(quantityInput.value);
+      if (isNaN(value) || value <= 0) {
+        quantityInput.value = 1;
+      }
+      updateTotalPrice();
+    });
+
+    // 定義更新總價格的函數
+    function updateTotalPrice() {
+      const unitPrice = parseInt(item.querySelector('.unit-price .price-value').textContent);
+      let quantity = parseInt(quantityInput.value);
+      const totalPrice = item.querySelector('.total-price .price-value');
+      totalPrice.textContent = unitPrice * quantity;
     }
-    updateTotalPrice();
   });
-
-  // 為數量增加按鈕設置點擊事件
-  const plusBtn = item.querySelector('.plus-btn');
-  plusBtn.addEventListener('click', () => {
-    let value = parseInt(quantityInput.value);
-    value++;
-    quantityInput.value = value;
-    updateTotalPrice();
-  });
-
-  // 為數量輸入框設置輸入事件
-  quantityInput.addEventListener('input', () => {
-    let value = parseInt(quantityInput.value);
-    if (isNaN(value) || value <= 0) {
-      quantityInput.value = 1;
-    }
-    updateTotalPrice();
-  });
-
-  // 定義更新總價格的函數
-  function updateTotalPrice() {
-    const unitPrice = parseInt(item.querySelector('.unit-price .price-value').textContent);
-    let quantity = parseInt(quantityInput.value);
-    const totalPrice = item.querySelector('.total-price .price-value');
-    totalPrice.textContent = unitPrice * quantity;
-  }
-});
 
 }
 
 // 在index.html 加入購物/直接結帳  生成購物清單
 
 // 加入購物車按鈕事件處理
-if (isIndexPage){
-for (var i = 1; i <= 5; i++) {
-  var addToCartBtn = document.getElementById('add-to-cart-btn-' + i);
-  addToCartBtn.addEventListener('click', addToCart.bind(null, i));
-}
+if (isIndexPage) {
+  for (var i = 1; i <= 5; i++) {
+    var addToCartBtn = document.getElementById('add-to-cart-btn-' + i);
+    addToCartBtn.addEventListener('click', addToCart.bind(null, i));
+  }
 
-// 直接結帳按鈕事件處理
-for (var i = 1; i <= 5; i++) {
-  var checkoutBtn = document.getElementById('checkout-btn-' + i);
-  checkoutBtn.addEventListener('click', checkout.bind(null, i));
-}
+  // 直接結帳按鈕事件處理
+  for (var i = 1; i <= 5; i++) {
+    var checkoutBtn = document.getElementById('checkout-btn-' + i);
+    checkoutBtn.addEventListener('click', checkout.bind(null, i));
+  }
 
-function addToCart(productId) {
-  // 獲取商品資訊
-  var productElement = document.getElementById('product' + productId);
-  var productName = productElement.querySelector('.product-name').getAttribute('data-product-name');
-  var productSpecButtons = productElement.querySelectorAll('.spec-btn');
-  var selectedSpec = null;
-  var productPrice = null;
-  var productQuantity = productElement.querySelector('.quantity-input').value;
+  function addToCart(productId) {
+    // 獲取商品資訊
+    var productElement = document.getElementById('product' + productId);
+    var productName = productElement.querySelector('.product-name').getAttribute('data-product-name');
+    var productSpecButtons = productElement.querySelectorAll('.spec-btn');
+    var selectedSpec = null;
+    var productPrice = null;
+    var productQuantity = productElement.querySelector('.quantity-input').value;
 
-  // 找到被選中的規格按鈕
-  for (var i = 0; i < productSpecButtons.length; i++) {
-    var button = productSpecButtons[i];
-    if (button.classList.contains('active')) {
-      selectedSpec = button.getAttribute('data-spec');
-      productPrice = button.getAttribute('data-price');
-      break;
+    // 找到被選中的規格按鈕
+    for (var i = 0; i < productSpecButtons.length; i++) {
+      var button = productSpecButtons[i];
+      if (button.classList.contains('active')) {
+        selectedSpec = button.getAttribute('data-spec');
+        productPrice = button.getAttribute('data-price');
+        break;
+      }
+    }
+
+    // 確保找到了被選中的規格按鈕
+    if (selectedSpec && productPrice) {
+      // 儲存資訊至 localStorage
+      var cartItem = {
+        name: productName,
+        spec: selectedSpec,
+        price: productPrice,
+        quantity: productQuantity
+      };
+
+      var cartList = localStorage.getItem('cartList');
+      if (cartList) {
+        cartList = JSON.parse(cartList);
+      } else {
+        cartList = [];
+      }
+
+      cartList.push(cartItem);
+      localStorage.setItem('cartList', JSON.stringify(cartList));
+
+      // 顯示已加入購物車訊息
+      document.getElementById('add-to-cart-message-' + productId).innerText = '已加入購物車';
+
+      // 更新購物車狀態
+      updateCartStatus();
+
+      window.location.href = 'cart.html'; // 導向到 cart.html
     }
   }
 
-  // 確保找到了被選中的規格按鈕
-  if (selectedSpec && productPrice) {
-    // 儲存資訊至 localStorage
-    var cartItem = {
-      name: productName,
-      spec: selectedSpec,
-      price: productPrice,
-      quantity: productQuantity
-    };
+  // 修改 checkout() 函式
+  function checkout(productId) {
+    addToCart(productId); // 將點擊的商品加入購物車
 
     var cartList = localStorage.getItem('cartList');
     if (cartList) {
       cartList = JSON.parse(cartList);
-    } else {
+
+      // 執行結帳相關邏輯
+      // ...
+
+      // 清空購物車
       cartList = [];
+      localStorage.setItem('cartList', JSON.stringify(cartList));
+
+      // 更新購物車狀態
+      updateCartStatus();
     }
-
-    cartList.push(cartItem);
-    localStorage.setItem('cartList', JSON.stringify(cartList));
-
-    // 顯示已加入購物車訊息
-    document.getElementById('add-to-cart-message-' + productId).innerText = '已加入購物車';
-
-    // 更新購物車狀態
-    updateCartStatus();
-
-    window.location.href = 'cart.html'; // 導向到 cart.html
   }
-}
 
-// 修改 checkout() 函式
-function checkout(productId) {
-  addToCart(productId); // 將點擊的商品加入購物車
+  // 修改 updateCartStatus() 函式
+  function updateCartStatus() {
+    var cartList = localStorage.getItem('cartList');
+    if (cartList) {
+      cartList = JSON.parse(cartList);
 
-  var cartList = localStorage.getItem('cartList');
-  if (cartList) {
-    cartList = JSON.parse(cartList);
+      // 獲取購物清單容器元素
+      var cartItemsContainer = document.querySelector('.cart-items');
 
-    // 執行結帳相關邏輯
-    // ...
+      // 清空購物清單
+      cartItemsContainer.innerHTML = '';
 
-    // 清空購物車
-    cartList = [];
-    localStorage.setItem('cartList', JSON.stringify(cartList));
+      // 重新生成購物清單項目
+      for (var i = 0; i < cartList.length; i++) {
+        var cartItem = cartList[i];
 
-    // 更新購物車狀態
-    updateCartStatus();
+        var row = document.createElement('tr');
+        var nameCell = document.createElement('td');
+        var specCell = document.createElement('td');
+        var priceCell = document.createElement('td');
+        var quantityCell = document.createElement('td');
+        var subtotalCell = document.createElement('td');
+        var removeBtnCell = document.createElement('td');
+        var removeBtn = document.createElement('button');
+
+        nameCell.innerText = cartItem.name;
+        specCell.innerText = cartItem.spec;
+        priceCell.innerText = cartItem.price;
+        quantityCell.innerText = cartItem.quantity;
+        subtotalCell.innerText = cartItem.price * cartItem.quantity;
+
+        removeBtn.innerText = '移除';
+        removeBtn.addEventListener('click', removeCartItem.bind(null, i));
+
+        removeBtnCell.appendChild(removeBtn);
+
+        row.appendChild(nameCell);
+        row.appendChild(specCell);
+        row.appendChild(priceCell);
+        row.appendChild(quantityCell);
+        row.appendChild(subtotalCell);
+        row.appendChild(removeBtnCell);
+
+
+        cartItemsContainer.appendChild(row);
+      }
+
+      // 更新購物車狀態顯示
+      var subtotal = calculateSubtotal(cartList);
+      document.getElementById('subtotal').innerText = subtotal.toFixed(2);
+      document.getElementById('total').innerText = subtotal.toFixed(2);
+    }
   }
-}
 
-// 修改 updateCartStatus() 函式
-function updateCartStatus() {
-  var cartList = localStorage.getItem('cartList');
-  if (cartList) {
-    cartList = JSON.parse(cartList);
-
-    // 獲取購物清單容器元素
-    var cartItemsContainer = document.querySelector('.cart-items');
-
-    // 清空購物清單
-    cartItemsContainer.innerHTML = '';
-
-    // 重新生成購物清單項目
+  // 計算小計
+  function calculateSubtotal(cartList) {
+    var subtotal = 0;
     for (var i = 0; i < cartList.length; i++) {
-      var cartItem = cartList[i];
-
-      var row = document.createElement('tr');
-      var nameCell = document.createElement('td');
-      var specCell = document.createElement('td');
-      var priceCell = document.createElement('td');
-      var quantityCell = document.createElement('td');
-      var subtotalCell = document.createElement('td');
-      var removeBtnCell = document.createElement('td');
-      var removeBtn = document.createElement('button');
-
-      nameCell.innerText = cartItem.name;
-      specCell.innerText = cartItem.spec;
-      priceCell.innerText = cartItem.price;
-      quantityCell.innerText = cartItem.quantity;
-      subtotalCell.innerText = cartItem.price * cartItem.quantity;
-
-      removeBtn.innerText = '移除';
-      removeBtn.addEventListener('click', removeCartItem.bind(null, i));
-
-      removeBtnCell.appendChild(removeBtn);
-
-      row.appendChild(nameCell);
-      row.appendChild(specCell);
-      row.appendChild(priceCell);
-      row.appendChild(quantityCell);
-      row.appendChild(subtotalCell);
-      row.appendChild(removeBtnCell);
-
-
-      cartItemsContainer.appendChild(row);
+      var item = cartList[i];
+      var itemPrice = parseFloat(item.price);
+      var itemQuantity = parseInt(item.quantity);
+      var itemTotal = itemPrice * itemQuantity;
+      subtotal += itemTotal;
     }
-
-    // 更新購物車狀態顯示
-    var subtotal = calculateSubtotal(cartList);
-    document.getElementById('subtotal').innerText = subtotal.toFixed(2);
-    document.getElementById('total').innerText = subtotal.toFixed(2);
+    return subtotal;
   }
-}
 
-// 計算小計
-function calculateSubtotal(cartList) {
-  var subtotal = 0;
-  for (var i = 0; i < cartList.length; i++) {
-    var item = cartList[i];
-    var itemPrice = parseFloat(item.price);
-    var itemQuantity = parseInt(item.quantity);
-    var itemTotal = itemPrice * itemQuantity;
-    subtotal += itemTotal;
+  // 修改 removeCartItem() 函式
+  function removeCartItem(index) {
+    var cartList = localStorage.getItem('cartList');
+    if (cartList) {
+      cartList = JSON.parse(cartList);
+
+      // 從購物車清單中移除商品
+      cartList.splice(index, 1);
+      localStorage.setItem('cartList', JSON.stringify(cartList));
+
+      // 更新購物車狀態
+      updateCartStatus();
+    }
   }
-  return subtotal;
-}
-
-// 修改 removeCartItem() 函式
-function removeCartItem(index) {
-  var cartList = localStorage.getItem('cartList');
-  if (cartList) {
-    cartList = JSON.parse(cartList);
-
-    // 從購物車清單中移除商品
-    cartList.splice(index, 1);
-    localStorage.setItem('cartList', JSON.stringify(cartList));
-
-    // 更新購物車狀態
-    updateCartStatus();
-  }
-}
 }
 // 在 cart.html 載入時更新購物車狀態
-if (isCartPage){
-document.addEventListener('DOMContentLoaded', function () {
-  displayCartItems();
-});
-
-function displayCartItems() {
-  var cartList = localStorage.getItem('cartList');
-  if (cartList) {
-    cartList = JSON.parse(cartList);
-
-    // 獲取購物清單容器元素
-    var cartItemsContainer = document.querySelector('.cart-items');
-    cartItemsContainer.innerHTML = '';
-
-    // 重新生成購物清單項目
-    for (var i = 0; i < cartList.length; i++) {
-      var cartItem = cartList[i];
-
-      var row = document.createElement('tr');
-      var nameCell = document.createElement('td');
-      var specCell = document.createElement('td');
-      var priceCell = document.createElement('td');
-      var quantityCell = document.createElement('td');
-      var subtotalCell = document.createElement('td');
-      var removeBtnCell = document.createElement('td');
-      var removeBtn = document.createElement('button');
-
-      nameCell.innerText = cartItem.name;
-      specCell.innerText = cartItem.spec;
-      priceCell.innerText = '$'+cartItem.price;
-      quantityCell.innerText = cartItem.quantity;
-      subtotalCell.innerText = '$'+(cartItem.price * cartItem.quantity);
-
-      removeBtn.innerText = '移除';
-      removeBtn.addEventListener('click', removeCartItem.bind(null, i));
-
-      removeBtnCell.appendChild(removeBtn);
-
-      row.appendChild(nameCell);
-      row.appendChild(specCell);
-      row.appendChild(priceCell);
-      row.appendChild(quantityCell);
-      row.appendChild(subtotalCell);
-      row.appendChild(removeBtnCell);
-
-
-      cartItemsContainer.appendChild(row);
-    }
-
-    // 計算小計和總金額
-    var subtotal = calculateSubtotal(cartList);
-    var total = subtotal;
-
-    // 更新購物車狀態顯示
-    document.getElementById('subtotal').innerText = subtotal.toFixed(2);
-    document.getElementById('total').innerText = total.toFixed(2);
-  }
-}
-
-function removeCartItem(index) {
-  var cartList = localStorage.getItem('cartList');
-  if (cartList) {
-    cartList = JSON.parse(cartList);
-
-    // 從購物車清單中移除商品
-    cartList.splice(index, 1);
-    localStorage.setItem('cartList', JSON.stringify(cartList));
-
-    // 重新顯示購物清單
+if (isCartPage) {
+  document.addEventListener('DOMContentLoaded', function () {
     displayCartItems();
-  }
-}
+  });
 
-function calculateSubtotal(cartList) {
-  var subtotal = 0;
-  for (var i = 0; i < cartList.length; i++) {
-    var item = cartList[i];
-    var itemPrice = parseFloat(item.price);
-    var itemQuantity = parseInt(item.quantity);
-    var itemTotal = itemPrice * itemQuantity;
-    subtotal += itemTotal;
-  }
-  return subtotal;
-}
+  function displayCartItems() {
+    var cartList = localStorage.getItem('cartList');
+    if (cartList) {
+      cartList = JSON.parse(cartList);
 
-//檢查是否存在 cart-itmes
-$(document).ready(function() {
-  if ($('.cart-items').length > 0) {
-    $('.cart-empty').remove();
-  } else {
-    var emptyDiv = $('<div class="cart-empty"><p>購物車是空的。<br>繼續瀏覽產品列表，選擇你想要的產品。</p></div>');
-    $('.cart-list').before(emptyDiv);
+      // 獲取購物清單容器元素
+      var cartItemsContainer = document.querySelector('.cart-items');
+      cartItemsContainer.innerHTML = '';
+
+      // 重新生成購物清單項目
+      for (var i = 0; i < cartList.length; i++) {
+        var cartItem = cartList[i];
+
+        var row = document.createElement('tr');
+        var nameCell = document.createElement('td');
+        var specCell = document.createElement('td');
+        var priceCell = document.createElement('td');
+        var quantityCell = document.createElement('td');
+        var subtotalCell = document.createElement('td');
+        var removeBtnCell = document.createElement('td');
+        var removeBtn = document.createElement('button');
+
+        nameCell.innerText = cartItem.name;
+        specCell.innerText = cartItem.spec;
+        priceCell.innerText = '$' + cartItem.price;
+        quantityCell.innerText = cartItem.quantity;
+        subtotalCell.innerText = '$' + (cartItem.price * cartItem.quantity);
+
+        removeBtn.innerText = '移除';
+        removeBtn.addEventListener('click', removeCartItem.bind(null, i));
+
+        removeBtnCell.appendChild(removeBtn);
+
+        row.appendChild(nameCell);
+        row.appendChild(specCell);
+        row.appendChild(priceCell);
+        row.appendChild(quantityCell);
+        row.appendChild(subtotalCell);
+        row.appendChild(removeBtnCell);
+
+
+        cartItemsContainer.appendChild(row);
+      }
+
+      // 計算小計和總金額
+      var subtotal = calculateSubtotal(cartList);
+      var total = subtotal;
+
+      // 更新購物車狀態顯示
+      document.getElementById('subtotal').innerText = subtotal.toFixed(2);
+      document.getElementById('total').innerText = total.toFixed(2);
+    }
   }
-});
+
+  function removeCartItem(index) {
+    var cartList = localStorage.getItem('cartList');
+    if (cartList) {
+      cartList = JSON.parse(cartList);
+
+      // 從購物車清單中移除商品
+      cartList.splice(index, 1);
+      localStorage.setItem('cartList', JSON.stringify(cartList));
+
+      // 重新顯示購物清單
+      displayCartItems();
+    }
+  }
+
+  function calculateSubtotal(cartList) {
+    var subtotal = 0;
+    for (var i = 0; i < cartList.length; i++) {
+      var item = cartList[i];
+      var itemPrice = parseFloat(item.price);
+      var itemQuantity = parseInt(item.quantity);
+      var itemTotal = itemPrice * itemQuantity;
+      subtotal += itemTotal;
+    }
+    return subtotal;
+  }
+
+  //檢查是否存在 cart-itmes
+  $(document).ready(function () {
+    if ($('.cart-items').length > 0) {
+      $('.cart-empty').remove();
+    } else {
+      var emptyDiv = $('<div class="cart-empty"><p>購物車是空的。<br>繼續瀏覽產品列表，選擇你想要的產品。</p></div>');
+      $('.cart-list').before(emptyDiv);
+    }
+  });
 
 }
