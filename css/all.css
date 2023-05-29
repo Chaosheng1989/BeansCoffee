@@ -1283,9 +1283,13 @@ footer {
 .cart-items{
   display: table-row-group;
   vertical-align: top;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
 }
 .cart-items td{
-  border: 1px solid #9f9c9c;
+  border: 1px solid #111;
   background-color: #FFF;
 }
 /* .cart-items .show{
