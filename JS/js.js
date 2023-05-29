@@ -483,13 +483,19 @@ if (isCartPage) {
   }
 
   //檢查是否存在 cart-itmes
-  $(document).ready(function () {
-    if ($('.cart-items').length > 0) {
-      $('.cart-empty').remove();
-    } else {
-      var emptyDiv = $('<div class="cart-empty"><p>購物車是空的。<br>繼續瀏覽產品列表，選擇你想要的產品。</p></div>');
-      $('.cart-list').before(emptyDiv);
-    }
+  $(document).ready(function() {
+    // 选择一个适当的父级元素，替换 'body' 以适应实际情况
+    $('.cart-list').on('DOMNodeInserted', '.cart-items', function() {
+      if ($('.cart-items').length > 0) {
+        $('.cart-empty').find('p').remove();
+      } else {
+        if ($('.cart-empty').find('p').length === 0) {
+          var emptyText = $('<p>購物車是空的。<br>繼續瀏覽產品列表，選擇你想要的產品。</p>');
+          $('.cart-empty').append(emptyText);
+        }
+      }
+    });
   });
+  
 
 }
