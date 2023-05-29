@@ -385,6 +385,7 @@ nav li:hover a:not(.cart-btn) {
   max-width: 100%;
   height: auto;
   padding-bottom: 60%;
+  margin-bottom: 1em;
   position: relative;
 }
 @media (max-width: 500px) {
