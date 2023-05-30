@@ -326,6 +326,7 @@ if (isIndexPage) {
       // 清空購物清單
       cartItemsContainer.innerHTML = '';
 
+
       // 重新生成購物清單項目
       for (var i = 0; i < cartList.length; i++) {
         var cartItem = cartList[i];
@@ -338,6 +339,7 @@ if (isIndexPage) {
         var subtotalCell = document.createElement('td');
         var removeBtnCell = document.createElement('td');
         var removeBtn = document.createElement('button');
+
 
         nameCell.innerText = cartItem.name;
         specCell.innerText = cartItem.spec;
@@ -424,6 +426,7 @@ if (isCartPage) {
         var removeBtnCell = document.createElement('td');
         var removeBtn = document.createElement('button');
 
+
         nameCell.innerText = cartItem.name;
         specCell.innerText = cartItem.spec;
         priceCell.innerText = '$' + cartItem.price;
@@ -447,13 +450,23 @@ if (isCartPage) {
       }
 
       // 計算小計和總金額
-      var subtotal = calculateSubtotal(cartList);
-      var total = subtotal;
+      var freightElement = document.querySelector('.shipping span');
+      var freightValue = parseFloat(freightElement.getAttribute('date-freight'));
 
-      // 更新購物車狀態顯示
-      document.getElementById('subtotal').innerText = subtotal.toFixed(2);
-      document.getElementById('total').innerText = total.toFixed(2);
+      var subtotal = calculateSubtotal(cartList);
+      var total = subtotal + freightValue;
+
+
+
+      // 設定總金額元素的內容
+      var grandTotalElement = document.querySelector('.cart-grand-total-value');
+      grandTotalElement.innerText = '$' + total.toFixed(0);
     }
+
+   
+
+
+
   }
 
   function removeCartItem(index) {
@@ -481,21 +494,4 @@ if (isCartPage) {
     }
     return subtotal;
   }
-
-  //檢查是否存在 cart-itmes
-  $(document).ready(function() {
-    // 选择一个适当的父级元素，替换 'body' 以适应实际情况
-    $('.cart-list').on('DOMNodeInserted', '.cart-items', function() {
-      if ($('.cart-items').length > 0) {
-        $('.cart-empty').find('p').remove();
-      } else {
-        if ($('.cart-empty').find('p').length === 0) {
-          var emptyText = $('<p>購物車是空的。<br>繼續瀏覽產品列表，選擇你想要的產品。</p>');
-          $('.cart-empty').append(emptyText);
-        }
-      }
-    });
-  });
-  
-
 }
