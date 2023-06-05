@@ -2,7 +2,6 @@
 $(document).ready(function () {
   $('.menu-icon').click(function () {
     $('.menu').toggleClass('menu-show');
-    document.querySelector('.banner').classList.toggle('banner-show');
   });
 });
 
@@ -233,6 +232,8 @@ if (isIndexPage) {
 // 在index.html 加入購物/直接結帳  生成購物清單
 
 // 加入購物車按鈕事件處理
+
+
 if (isIndexPage) {
   for (var i = 1; i <= 5; i++) {
     var addToCartBtn = document.getElementById('add-to-cart-btn-' + i);
@@ -244,6 +245,9 @@ if (isIndexPage) {
     var checkoutBtn = document.getElementById('checkout-btn-' + i);
     checkoutBtn.addEventListener('click', checkout.bind(null, i));
   }
+
+
+
 
   function addToCart(productId) {
     // 獲取商品資訊
@@ -284,8 +288,7 @@ if (isIndexPage) {
       cartList.push(cartItem);
       localStorage.setItem('cartList', JSON.stringify(cartList));
 
-      // 顯示已加入購物車訊息
-      document.getElementById('add-to-cart-message-' + productId).innerText = '已加入購物車';
+
 
       // 更新購物車狀態
       updateCartStatus();
@@ -463,7 +466,7 @@ if (isCartPage) {
       grandTotalElement.innerText = '$' + total.toFixed(0);
     }
 
-   
+
 
 
 

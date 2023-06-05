@@ -160,6 +160,7 @@ body {
 } */
 .container {
   max-width: 1400px;
+  margin: 0 auto;
 }
 
 /* header */
@@ -378,9 +379,6 @@ nav li:hover a:not(.cart-btn) {
     -ms-flex-align: center;
     align-items: center;
   }
-  .banner-show {
-    margin-top: 15%;
-  }
 }
 /* banner */
 .banner {
@@ -390,6 +388,7 @@ nav li:hover a:not(.cart-btn) {
   margin-bottom: 3rem;
   position: relative;
 }
+
 @media (max-width: 500px) {
   .banner {
     margin-top: 3rem;
