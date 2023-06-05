@@ -409,92 +409,109 @@ if (isCartPage) {
 
   function displayCartItems() {
     var cartList = localStorage.getItem('cartList');
-    if (cartList) {
-      cartList = JSON.parse(cartList);
+    var cartItemsContainer = document.querySelector('.cart-items');
+    var cartEmptyElement = document.querySelector('.cart-empty');
+    var cartScrollX = document.querySelector('.cart-items-scroll-X');
+    var totalElement = document.querySelector('.total');
 
-      // 獲取購物清單容器元素
-      var cartItemsContainer = document.querySelector('.cart-items');
+    if (!cartList || JSON.parse(cartList).length === 0) {
+      // cartList為空或長度為0時的處理
       cartItemsContainer.innerHTML = '';
+      cartEmptyElement.innerHTML = "<p>購物車是空的。<br>繼續瀏覽產品列表，選擇你想要的產品。</p>";
+      cartScrollX.style.display = 'none';
+      totalElement.style.display = 'none';
+    } else {
+      // cartList不為空時的處理
+      cartEmptyElement.innerHTML = "";
+      cartScrollX.style.display = 'block';
+      totalElement.style.display = 'flex';
+    }
+      if (cartList) {
+        cartList = JSON.parse(cartList);
 
-      // 重新生成購物清單項目
-      for (var i = 0; i < cartList.length; i++) {
-        var cartItem = cartList[i];
+        // 獲取購物清單容器元素
+        var cartItemsContainer = document.querySelector('.cart-items');
+        cartItemsContainer.innerHTML = '';
 
-        var row = document.createElement('tr');
-        var nameCell = document.createElement('td');
-        var specCell = document.createElement('td');
-        var priceCell = document.createElement('td');
-        var quantityCell = document.createElement('td');
-        var subtotalCell = document.createElement('td');
-        var removeBtnCell = document.createElement('td');
-        var removeBtn = document.createElement('button');
+        // 重新生成購物清單項目
+        for (var i = 0; i < cartList.length; i++) {
+          var cartItem = cartList[i];
 
-
-        nameCell.innerText = cartItem.name;
-        specCell.innerText = cartItem.spec;
-        priceCell.innerText = '$' + cartItem.price;
-        quantityCell.innerText = cartItem.quantity;
-        subtotalCell.innerText = '$' + (cartItem.price * cartItem.quantity);
-
-        removeBtn.innerText = '移除';
-        removeBtn.addEventListener('click', removeCartItem.bind(null, i));
-
-        removeBtnCell.appendChild(removeBtn);
-
-        row.appendChild(nameCell);
-        row.appendChild(specCell);
-        row.appendChild(priceCell);
-        row.appendChild(quantityCell);
-        row.appendChild(subtotalCell);
-        row.appendChild(removeBtnCell);
+          var row = document.createElement('tr');
+          var nameCell = document.createElement('td');
+          var specCell = document.createElement('td');
+          var priceCell = document.createElement('td');
+          var quantityCell = document.createElement('td');
+          var subtotalCell = document.createElement('td');
+          var removeBtnCell = document.createElement('td');
+          var removeBtn = document.createElement('button');
 
 
-        cartItemsContainer.appendChild(row);
+          nameCell.innerText = cartItem.name;
+          specCell.innerText = cartItem.spec;
+          priceCell.innerText = '$' + cartItem.price;
+          quantityCell.innerText = cartItem.quantity;
+          subtotalCell.innerText = '$' + (cartItem.price * cartItem.quantity);
+
+          removeBtn.innerText = '移除';
+          removeBtn.addEventListener('click', removeCartItem.bind(null, i));
+
+          removeBtnCell.appendChild(removeBtn);
+
+          row.appendChild(nameCell);
+          row.appendChild(specCell);
+          row.appendChild(priceCell);
+          row.appendChild(quantityCell);
+          row.appendChild(subtotalCell);
+          row.appendChild(removeBtnCell);
+
+
+          cartItemsContainer.appendChild(row);
+        }
+
+        // 計算小計和總金額
+        var freightElement = document.querySelector('.shipping span');
+        var freightValue = parseFloat(freightElement.getAttribute('date-freight'));
+
+        var subtotal = calculateSubtotal(cartList);
+        var total = subtotal + freightValue;
+
+
+
+        // 設定總金額元素的內容
+        var grandTotalElement = document.querySelector('.cart-grand-total-value');
+        grandTotalElement.innerText = '$' + total.toFixed(0);
       }
 
-      // 計算小計和總金額
-      var freightElement = document.querySelector('.shipping span');
-      var freightValue = parseFloat(freightElement.getAttribute('date-freight'));
-
-      var subtotal = calculateSubtotal(cartList);
-      var total = subtotal + freightValue;
 
 
 
-      // 設定總金額元素的內容
-      var grandTotalElement = document.querySelector('.cart-grand-total-value');
-      grandTotalElement.innerText = '$' + total.toFixed(0);
+
     }
 
+    function removeCartItem(index) {
+      var cartList = localStorage.getItem('cartList');
+      if (cartList) {
+        cartList = JSON.parse(cartList);
 
+        // 從購物車清單中移除商品
+        cartList.splice(index, 1);
+        localStorage.setItem('cartList', JSON.stringify(cartList));
 
+        // 重新顯示購物清單
+        displayCartItems();
+      }
+    }
 
-
-  }
-
-  function removeCartItem(index) {
-    var cartList = localStorage.getItem('cartList');
-    if (cartList) {
-      cartList = JSON.parse(cartList);
-
-      // 從購物車清單中移除商品
-      cartList.splice(index, 1);
-      localStorage.setItem('cartList', JSON.stringify(cartList));
-
-      // 重新顯示購物清單
-      displayCartItems();
+    function calculateSubtotal(cartList) {
+      var subtotal = 0;
+      for (var i = 0; i < cartList.length; i++) {
+        var item = cartList[i];
+        var itemPrice = parseFloat(item.price);
+        var itemQuantity = parseInt(item.quantity);
+        var itemTotal = itemPrice * itemQuantity;
+        subtotal += itemTotal;
+      }
+      return subtotal;
     }
   }
-
-  function calculateSubtotal(cartList) {
-    var subtotal = 0;
-    for (var i = 0; i < cartList.length; i++) {
-      var item = cartList[i];
-      var itemPrice = parseFloat(item.price);
-      var itemQuantity = parseInt(item.quantity);
-      var itemTotal = itemPrice * itemQuantity;
-      subtotal += itemTotal;
-    }
-    return subtotal;
-  }
-}
