@@ -18,7 +18,7 @@ $('a[href^="#"]').on('click', function (event) {
 
 
 //banner 載入index.html 時，文字backInDown效果
-const isIndexPage = (document.location.pathname === '/index.html' || document.location.pathname === '/BeansCoffee/index.html');
+const isIndexPage = (document.location.pathname === '/BeansCoffee/' || document.location.pathname === '/BeansCoffee/index.html');
 const isCartPage = (document.location.pathname === '/cart.html');
 if (isIndexPage) {
   const elements = document.querySelectorAll('.animate__backInDown');
