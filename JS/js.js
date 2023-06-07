@@ -18,7 +18,7 @@ $('a[href^="#"]').on('click', function (event) {
 
 
 //banner 載入index.html 時，文字backInDown效果
-const isIndexPage = (document.location.pathname === '/index.html');
+const isIndexPage = (document.location.pathname === '/index.html' || document.location.pathname === '/BeansCoffee/index.html');
 const isCartPage = (document.location.pathname === '/cart.html');
 if (isIndexPage) {
   const elements = document.querySelectorAll('.animate__backInDown');
@@ -426,92 +426,92 @@ if (isCartPage) {
       cartScrollX.style.display = 'block';
       totalElement.style.display = 'flex';
     }
-      if (cartList) {
-        cartList = JSON.parse(cartList);
+    if (cartList) {
+      cartList = JSON.parse(cartList);
 
-        // 獲取購物清單容器元素
-        var cartItemsContainer = document.querySelector('.cart-items');
-        cartItemsContainer.innerHTML = '';
+      // 獲取購物清單容器元素
+      var cartItemsContainer = document.querySelector('.cart-items');
+      cartItemsContainer.innerHTML = '';
 
-        // 重新生成購物清單項目
-        for (var i = 0; i < cartList.length; i++) {
-          var cartItem = cartList[i];
-
-          var row = document.createElement('tr');
-          var nameCell = document.createElement('td');
-          var specCell = document.createElement('td');
-          var priceCell = document.createElement('td');
-          var quantityCell = document.createElement('td');
-          var subtotalCell = document.createElement('td');
-          var removeBtnCell = document.createElement('td');
-          var removeBtn = document.createElement('button');
-
-
-          nameCell.innerText = cartItem.name;
-          specCell.innerText = cartItem.spec;
-          priceCell.innerText = '$' + cartItem.price;
-          quantityCell.innerText = cartItem.quantity;
-          subtotalCell.innerText = '$' + (cartItem.price * cartItem.quantity);
-
-          removeBtn.innerText = '移除';
-          removeBtn.addEventListener('click', removeCartItem.bind(null, i));
-
-          removeBtnCell.appendChild(removeBtn);
-
-          row.appendChild(nameCell);
-          row.appendChild(specCell);
-          row.appendChild(priceCell);
-          row.appendChild(quantityCell);
-          row.appendChild(subtotalCell);
-          row.appendChild(removeBtnCell);
-
-
-          cartItemsContainer.appendChild(row);
-        }
-
-        // 計算小計和總金額
-        var freightElement = document.querySelector('.shipping span');
-        var freightValue = parseFloat(freightElement.getAttribute('date-freight'));
-
-        var subtotal = calculateSubtotal(cartList);
-        var total = subtotal + freightValue;
-
-
-
-        // 設定總金額元素的內容
-        var grandTotalElement = document.querySelector('.cart-grand-total-value');
-        grandTotalElement.innerText = '$' + total.toFixed(0);
-      }
-
-
-
-
-
-    }
-
-    function removeCartItem(index) {
-      var cartList = localStorage.getItem('cartList');
-      if (cartList) {
-        cartList = JSON.parse(cartList);
-
-        // 從購物車清單中移除商品
-        cartList.splice(index, 1);
-        localStorage.setItem('cartList', JSON.stringify(cartList));
-
-        // 重新顯示購物清單
-        displayCartItems();
-      }
-    }
-
-    function calculateSubtotal(cartList) {
-      var subtotal = 0;
+      // 重新生成購物清單項目
       for (var i = 0; i < cartList.length; i++) {
-        var item = cartList[i];
-        var itemPrice = parseFloat(item.price);
-        var itemQuantity = parseInt(item.quantity);
-        var itemTotal = itemPrice * itemQuantity;
-        subtotal += itemTotal;
+        var cartItem = cartList[i];
+
+        var row = document.createElement('tr');
+        var nameCell = document.createElement('td');
+        var specCell = document.createElement('td');
+        var priceCell = document.createElement('td');
+        var quantityCell = document.createElement('td');
+        var subtotalCell = document.createElement('td');
+        var removeBtnCell = document.createElement('td');
+        var removeBtn = document.createElement('button');
+
+
+        nameCell.innerText = cartItem.name;
+        specCell.innerText = cartItem.spec;
+        priceCell.innerText = '$' + cartItem.price;
+        quantityCell.innerText = cartItem.quantity;
+        subtotalCell.innerText = '$' + (cartItem.price * cartItem.quantity);
+
+        removeBtn.innerText = '移除';
+        removeBtn.addEventListener('click', removeCartItem.bind(null, i));
+
+        removeBtnCell.appendChild(removeBtn);
+
+        row.appendChild(nameCell);
+        row.appendChild(specCell);
+        row.appendChild(priceCell);
+        row.appendChild(quantityCell);
+        row.appendChild(subtotalCell);
+        row.appendChild(removeBtnCell);
+
+
+        cartItemsContainer.appendChild(row);
       }
-      return subtotal;
+
+      // 計算小計和總金額
+      var freightElement = document.querySelector('.shipping span');
+      var freightValue = parseFloat(freightElement.getAttribute('date-freight'));
+
+      var subtotal = calculateSubtotal(cartList);
+      var total = subtotal + freightValue;
+
+
+
+      // 設定總金額元素的內容
+      var grandTotalElement = document.querySelector('.cart-grand-total-value');
+      grandTotalElement.innerText = '$' + total.toFixed(0);
+    }
+
+
+
+
+
+  }
+
+  function removeCartItem(index) {
+    var cartList = localStorage.getItem('cartList');
+    if (cartList) {
+      cartList = JSON.parse(cartList);
+
+      // 從購物車清單中移除商品
+      cartList.splice(index, 1);
+      localStorage.setItem('cartList', JSON.stringify(cartList));
+
+      // 重新顯示購物清單
+      displayCartItems();
     }
   }
+
+  function calculateSubtotal(cartList) {
+    var subtotal = 0;
+    for (var i = 0; i < cartList.length; i++) {
+      var item = cartList[i];
+      var itemPrice = parseFloat(item.price);
+      var itemQuantity = parseInt(item.quantity);
+      var itemTotal = itemPrice * itemQuantity;
+      subtotal += itemTotal;
+    }
+    return subtotal;
+  }
+}
