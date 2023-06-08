@@ -17,9 +17,11 @@ $('a[href^="#"]').on('click', function (event) {
 });
 
 
-//banner 載入index.html 時，文字backInDown效果
-const isIndexPage = (document.location.pathname === '/index.html' || document.location.pathname === '/BeansCoffee/index.html');
+//宣告 index.html 、 cart.html 及相關路徑
+const isIndexPage = (document.location.pathname === '/index.html');
 const isCartPage = (document.location.pathname === '/cart.html');
+
+//banner 載入index.html 時，文字backInDown效果
 if (isIndexPage) {
   const elements = document.querySelectorAll('.animate__backInDown');
 
@@ -232,13 +234,23 @@ if (isIndexPage) {
 // 在index.html 加入購物/直接結帳  生成購物清單
 
 // 加入購物車按鈕事件處理
-
-
 if (isIndexPage) {
   for (var i = 1; i <= 5; i++) {
     var addToCartBtn = document.getElementById('add-to-cart-btn-' + i);
     addToCartBtn.addEventListener('click', addToCart.bind(null, i));
   }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var addToCartButtons = document.getElementsByClassName('add-to-cart-btn');
+    for (var i = 0; i < addToCartButtons.length; i++) {
+      addToCartButtons[i].addEventListener('click', function() {
+        alert('已加入購物車');
+      });
+    }
+  });
+  
+  
+  
 
   // 直接結帳按鈕事件處理
   for (var i = 1; i <= 5; i++) {
@@ -327,7 +339,7 @@ if (isIndexPage) {
       var cartItemsContainer = document.querySelector('.cart-items');
 
       // 清空購物清單
-      cartItemsContainer.innerHTML = '';
+      // cartItemsContainer.innerHTML = '';
 
 
       // 重新生成購物清單項目
