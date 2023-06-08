@@ -21,10 +21,6 @@ $('a[href^="#"]').on('click', function (event) {
 const isIndexPage = (document.location.pathname === '/index.html');
 const isCartPage = (document.location.pathname === '/cart.html');
 
-//banner 載入index.html 時，文字backInDown效果
-//宣告 index.html 、 cart.html 及相關路徑
-const isIndexPage = (document.location.pathname === '/index.html' || document.location.pathname === '/BeansCoffee/index.html'|| document.location.pathname === '/BeansCoffee/');
-const isCartPage = (document.location.pathname === '/cart.html' || document.location.pathname === '/BeansCoffee/cart.html');
 
 //banner 載入index.html 時，文字backInDown效果
 if (isIndexPage) {
