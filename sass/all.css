@@ -669,7 +669,8 @@ footer {
 
 .signup {
   margin: 0 auto;
-  background-color: rgba(128, 128, 128, 0.61);
+  /* background-color: rgba(128, 128, 128, 0.61); */
+  background-color: rgb(150, 219, 160);
   padding-top: 30px;
   max-width: 60%;
   border-radius: 0 0 10px 10px;
@@ -787,7 +788,8 @@ footer {
 .login {
   margin: 0 auto;
   position: relative;
-  background-color: rgba(128, 128, 128, 0.61);
+  /* background-color: rgba(128, 128, 128, 0.61); */
+  background-color: rgb(150, 219, 160);
   padding-top: 30px;
   max-width: 60%;
   border-radius: 0 0 10px 10px;
@@ -899,6 +901,7 @@ footer {
   position: relative;
   z-index: 2;
   background-color: rgb(150, 219, 160);
+  /* background-color: rgba(128, 128, 128, 0.61); */
   border-radius: 0 0 10px 10px;
 }
 .cart-list h2 {
@@ -1034,4 +1037,4 @@ td.subtotal {
   background-color: blue;
   color: blue;
   font-weight: bold;
-}/*# sourceMappingURL=all.css.map */
+}

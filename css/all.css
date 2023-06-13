@@ -1215,7 +1215,7 @@ footer {
   text-align: center;
   position: relative;
   z-index: 2;
-  background-color: rgb(150, 219, 160);
+  background-color: rgba(128, 128, 128, 0.61);
   border-radius: 0 0 10px 10px;
 }
 .cart-list h1 {
