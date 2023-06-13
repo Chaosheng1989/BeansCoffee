@@ -68,11 +68,14 @@ img {
 body {
   font-family: "Microsoft JhengHei Bold", sans-serif;
 }
-
+.container{
+  margin: 0 auto;
+  width: 1400px;
+}
 /* header */
 .header {
   position: fixed;
-  top: 0;
+  top: 50%;
   left: 0;
   right: 0;
   z-index: 999;
@@ -650,10 +653,9 @@ footer {
 /* signup.html 註冊會員流程 */
 .signup-banner {
   max-width: 100%;
-  max-height: 30%;
+  height: auto;
   padding-bottom: 66.67%;
   position: relative;
-  margin: 0 auto;
 }
 .signup-banner img {
   position: absolute;
@@ -665,25 +667,8 @@ footer {
      object-fit: cover;
 }
 
-.signup::before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url(https://media.istockphoto.com/id/1411720693/photo/tasty-cups-of-coffee.jpg?s=612x612&w=0&k=20&c=8k47TxB-D4c5J-dBA1lY_9MeTam4mN7-2vKVS4ge0SM=);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.6; /* 設置透明度 */
-  z-index: -1; /* 把偽元素移到背景 */
-}
-
 .signup {
   margin: 0 auto;
-  position: relative;
   background-color: rgba(128, 128, 128, 0.61);
   padding-top: 30px;
   max-width: 60%;
@@ -770,10 +755,8 @@ footer {
 /* login.hmtl 會員登入 */
 .login-banner {
   max-width: 100%;
-  height: 100%;
-  padding-bottom: 15%;
+  padding-bottom: 66.67%;
   position: relative;
-  overflow: hidden;
 }
 .login-banner img {
   position: absolute;

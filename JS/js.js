@@ -18,8 +18,8 @@ $('a[href^="#"]').on('click', function (event) {
 
 
 //宣告 index.html 、 cart.html 及相關路徑
-const isIndexPage = (document.location.pathname === '/index.html'||document.location.pathname === '/BeansCoffee/index.html');
-const isCartPage = (document.location.pathname === '/cart.html'||document.location.pathname === '/BeansCoffee/cart.html');
+const isIndexPage = (document.location.pathname === '/index.html' || document.location.pathname === '/BeansCoffee/index.html');
+const isCartPage = (document.location.pathname === '/cart.html' || document.location.pathname === '/BeansCoffee/cart.html');
 
 
 //banner 載入index.html 時，文字backInDown效果
@@ -241,17 +241,17 @@ if (isIndexPage) {
     addToCartBtn.addEventListener('click', addToCart.bind(null, i));
   }
 
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     var addToCartButtons = document.getElementsByClassName('add-to-cart-btn');
     for (var i = 0; i < addToCartButtons.length; i++) {
-      addToCartButtons[i].addEventListener('click', function() {
+      addToCartButtons[i].addEventListener('click', function () {
         alert('已加入購物車');
       });
     }
   });
-  
-  
-  
+
+
+
 
   // 直接結帳按鈕事件處理
   for (var i = 1; i <= 5; i++) {
