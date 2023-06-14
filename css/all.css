@@ -159,8 +159,8 @@ body {
   outline: 1px solid #000;
 } */
 .container {
-  max-width: 1400px;
   margin: 0 auto;
+  max-width: 100%;
 }
 
 /* header */
@@ -183,7 +183,6 @@ body {
   background-color: rgb(0, 6, 18);
   -webkit-transition: height 0.5s ease;
   transition: height 0.5s ease;
-  max-width: 1400px;
   height: auto;
 }
 
